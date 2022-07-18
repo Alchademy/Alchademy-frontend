@@ -5,6 +5,10 @@ import {
   Route,
   Link
 } from 'react-router-dom';
+import AboutPage from './components/AboutPage';
+import AccountPage from './components/AccountPage';
+import AssignmentList from './components/AssignmentList';
+import Dashboard from './components/Dashboard';
 
 export default function App() {
   return (
@@ -29,10 +33,16 @@ export default function App() {
 
         <Switch>
           <Route path="/about">
+            <AboutPage/>
           </Route>
-          <Route path="/users">
+          <Route path="/account">
+            <AccountPage/>
           </Route>
-          <Route path="/">
+          <Route path="/dashboard">
+            <Dashboard/>
+          </Route>
+          <Route path="/assignments">
+            <AssignmentList/>
           </Route>
         </Switch>
       </div>
