@@ -14,6 +14,7 @@ import AuthPage from './components/AuthPage';
 import Dashboard from './components/Dashboard';
 import { getUser, logout } from './services/fetch-users';
 import { useStateContext } from './StateProvider';
+import Nav from './components/Nav';
 
 export default function App() {
   const { user, setUser } = useStateContext();
@@ -37,22 +38,7 @@ export default function App() {
     <Router>
       <div>
         <button onClick={handleLogout}>Logout</button>
-        {user.id ? <nav>
-          <ul>
-            <li>
-              <Link to="/dashboard">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/account">Account</Link>
-            </li>
-            <li>
-              <Link to="/assignments">Assignments</Link>
-            </li>
-          </ul>
-        </nav> : ''}
+        {user.id ? <Nav/> : ''}
        
 
         <Switch>
