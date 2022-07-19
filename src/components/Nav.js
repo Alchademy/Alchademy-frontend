@@ -17,6 +17,9 @@ export default function Nav() {
         <li>
           <Link to="/assignments">Assignments</Link>
         </li>
+        <li>
+          <Link to="/assignments/1">Assignment</Link>
+        </li>
       </ul>
     </div>
   );

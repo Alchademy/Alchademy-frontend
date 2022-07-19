@@ -12,9 +12,11 @@ import AccountPage from './components/AccountPage';
 import AssignmentList from './components/AssignmentList';
 import AuthPage from './components/AuthPage';
 import Dashboard from './components/Dashboard';
+import AssignmentDetail from './components/AssignmentDetail';
 import { getUser, logout } from './services/fetch-users';
 import { useStateContext } from './StateProvider';
 import Nav from './components/Nav';
+
 
 export default function App() {
   const { user, setUser } = useStateContext();
@@ -39,8 +41,6 @@ export default function App() {
       <div>
         <button onClick={handleLogout}>Logout</button>
         {user.id ? <Nav/> : ''}
-       
-
         <Switch>
           <Route exact path="/">
             {user.id ? <Redirect to="/dashboard" /> : <AuthPage />}
@@ -56,6 +56,9 @@ export default function App() {
           </Route>
           <Route exact path="/assignments">
             {user.id ? <AssignmentList /> : <Redirect to="/" />}
+          </Route>
+          <Route exact path="/assignments/:id">
+            {user.id ? <AssignmentDetail /> : <Redirect to="/" />}
           </Route>
         </Switch>
       </div>

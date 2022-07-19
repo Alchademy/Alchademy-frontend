@@ -1,0 +1,54 @@
+.ColorScheme {
+  text-align: center;
+  --pink: #FAF0EA;
+  --pink-dark: #D4C9bA;
+  --pink-light: #DFD3C6;
+  --peach: #E89062;
+  --peach-dark: #72442A;
+  --peach-extra-dark: #533321;
+  --peach-light: #e89f78;
+  --blue: #A2D7D2;
+  --blue-medium: #65A7AB;
+  --blue-dark: #1F4E5C;
+  --gold: #DDA438;
+  --gold-dark: #9F7724;
+  --black: #221F1F;
+  --black-65: #6F6866;
+  --black-40: #A7A5A5;
+  --black-20: #D3D2D2;
+  --white: #FFFCFA;
+  --white-transparent-30: #fffcfa4d;
+}
+
+.titleLine {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
+.space-between {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+}
+
+.assignmentDescription {
+    height: 200px;
+    width: 100%;
+    overflow: auto;
+    position: relative;
+    margin-left: 10px;
+    margin-top: 10px;
+    border: 2px solid var(--black-65);
+    padding: 25px;
+}
+
+.margin-top {
+  margin-top: 40px;
+}
+
+.ticketForm {
+  display: flex;
+  flex-direction: column;
+}
