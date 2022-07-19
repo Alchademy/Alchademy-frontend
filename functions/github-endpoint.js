@@ -4,20 +4,20 @@ require('dotenv').config();
 const headers = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': 'Content-Type',
-  'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE'
+  'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE',
 };
-
 
 exports.handler = async (event, context) => {
   try {
-    const response = await fetch('https://cat-fact.herokuapp.com/facts');
+    await fetch(`${process.env.REACT_APP_API_URL}/github/login`);
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/github/dashboard`);
     const data = await response.json();
     const json = JSON.stringify(data);
-    
-    return { 
-      statusCode: 200, 
+
+    return {
+      statusCode: 200,
       headers,
-      body: json
+      body: json,
     };
   } catch (error) {
     console.log(error);
