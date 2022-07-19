@@ -19,7 +19,6 @@ export default function Dashboard() {
 
     getSyllabus();
     getCohort();
-    console.log('cohort', cohort);
   }, [user.id]);
 
   return (
