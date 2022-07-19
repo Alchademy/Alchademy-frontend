@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -13,9 +13,10 @@ import AssignmentList from './components/AssignmentList';
 import AuthPage from './components/AuthPage';
 import Dashboard from './components/Dashboard';
 import { getUser, logout } from './services/fetch-users';
+import { useStateContext } from './StateProvider';
 
 export default function App() {
-  const [user, setUser] = useState({});
+  const { user, setUser } = useStateContext();
 
   async function handleLogout() {
     await logout();
@@ -28,15 +29,15 @@ export default function App() {
       setUser(user);
     }
     load();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  console.log(user);
 
   return (
     <Router>
       <div>
         <button onClick={handleLogout}>Logout</button>
-        <nav>
+        {user.id ? <nav>
           <ul>
             <li>
               <Link to="/dashboard">Home</Link>
@@ -51,7 +52,8 @@ export default function App() {
               <Link to="/assignments">Assignments</Link>
             </li>
           </ul>
-        </nav>
+        </nav> : ''}
+       
 
         <Switch>
           <Route exact path="/">
