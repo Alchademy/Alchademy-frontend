@@ -1,15 +1,24 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { getAssignmentsBySyllabusId } from '../services/fetch-assignments';
 import { useStateContext } from '../StateProvider';
 import Assignment from './Assignment';
 
 export default function AssignmentList() {
-  const { syllabus, assignment, getSyllabusAssignments } = useStateContext();
+  const { syllabus, assignment, getSyllabusAssignments, setAssignment } = useStateContext();
+  const { id } = useParams();
 
   useEffect(() => {
-    const list = getSyllabusAssignments(syllabus.id);
-    console.log('list', list);
+    async function getAssignments() {
+      if (id) {
+        const assignmentData = await getAssignmentsBySyllabusId(id);
+        setAssignment(assignmentData);
+      }
+    }
+    getAssignments();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [syllabus.id]);
+
   return (
     <div>
       <div> {syllabus.title} </div>
