@@ -37,6 +37,7 @@ body {
     box-shadow: 6px 9px 18px -3px rgba(0,0,0,0.39);
     border-radius: 10px;
     width: 210px;
+    height: 200px;
     background: var(--pink-dark);
     display: flex;
     flex-direction: column;
@@ -78,4 +79,32 @@ body {
 
   .syllabus-description p:nth-child(2){
     font-size: small;
+  }
+
+  .active{
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    background-color: var(--blue);
+    font-size: small;
+  }
+
+  .complete{
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    background-color: var(--peach);
+  }
+
+  .completeOrActive{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .completeOrActive p{
+    font-size: x-small;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
