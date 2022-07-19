@@ -1,0 +1,42 @@
+body{
+    --pink: #FAF0EA;
+    --pink-dark: #D4C9bA;
+    --pink-light: #DFD3C6;
+    --peach: #E89062;
+    --peach-dark: #72442A;
+    --peach-extra-dark: #533321;
+    --peach-light: #e89f78;
+    --blue: #A2D7D2;
+    --blue-medium: #65A7AB;
+    --blue-dark: #1F4E5C;
+    --gold: #DDA438;
+    --gold-dark: #9F7724;
+    --black: #221F1F;
+    --black-65: #6F6866;
+    --black-40: #A7A5A5;
+    --black-20: #D3D2D2;
+    --white: #FFFCFA;
+    --white-transparent-30: #fffcfa4d;
+    
+}
+.navBar{
+    background-color: var(--pink-dark);
+    height: 90px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.navBar ul{
+    display: flex;
+    list-style-type: none;
+}
+
+.navBar li{
+    margin: 10px;
+    color: var(--black-20);
+    display: flex;
+}
+
+.Link {
+    text-decoration: none;
+}
