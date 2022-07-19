@@ -1,0 +1,27 @@
+body {
+  --pink: #faf0ea;
+  --pink-dark: #d4c9ba;
+  --pink-light: #dfd3c6;
+  --peach: #e89062;
+  --peach-dark: #72442a;
+  --peach-extra-dark: #533321;
+  --peach-light: #e89f78;
+  --blue: #a2d7d2;
+  --blue-medium: #65a7ab;
+  --blue-dark: #1f4e5c;
+  --gold: #dda438;
+  --gold-dark: #9f7724;
+  --black: #221f1f;
+  --black-65: #6f6866;
+  --black-40: #a7a5a5;
+  --black-20: #d3d2d2;
+  --white: #fffcfa;
+  --white-transparent-30: #fffcfa4d;
+  background-color: var(--black);
+}
+.assignment-list-div {
+  color: white;
+}
+.syllabus-title {
+  color: white;
+}

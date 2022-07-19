@@ -3,9 +3,11 @@ import { useParams } from 'react-router-dom';
 import { getAssignmentsBySyllabusId } from '../services/fetch-assignments';
 import { useStateContext } from '../StateProvider';
 import Assignment from './Assignment';
+import './Assignments.css';
 
 export default function AssignmentList() {
-  const { syllabus, assignment, getSyllabusAssignments, setAssignment } = useStateContext();
+  const { syllabus, assignment, getSyllabusAssignments, setAssignment, getSyllabus } =
+    useStateContext();
   const { id } = useParams();
 
   useEffect(() => {
@@ -16,12 +18,13 @@ export default function AssignmentList() {
       }
     }
     getAssignments();
+    getSyllabus();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [syllabus.id]);
 
   return (
     <div>
-      <div> {syllabus.title} </div>
+      <div className="syllabus-title"> </div>
       <div>
         {assignment.map((assgn, i) => (
           <Assignment key={assgn.title + i} assgn={assgn} />

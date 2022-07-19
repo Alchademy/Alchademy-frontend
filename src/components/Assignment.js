@@ -8,7 +8,11 @@ export default function Assignment({ assgn }) {
         <p>
           {assgn.due_date} | {assgn.total_points}{' '}
         </p>
-        <p> {assgn.status_id} </p>
+        <p>
+          {' '}
+          {assgn.status_id === 2 && <span>Active</span>}
+          {assgn.status_id === 4 && <span>Completed</span>}{' '}
+        </p>
       </div>
     </Link>
   );
