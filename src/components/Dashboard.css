@@ -1,0 +1,81 @@
+body {
+    --pink: #FAF0EA;
+    --pink-dark: #D4C9bA;
+    --pink-light: #DFD3C6;
+    --peach: #E89062;
+    --peach-dark: #72442A;
+    --peach-extra-dark: #533321;
+    --peach-light: #e89f78;
+    --blue: #A2D7D2;
+    --blue-medium: #65A7AB;
+    --blue-dark: #1F4E5C;
+    --gold: #DDA438;
+    --gold-dark: #9F7724;
+    --black: #221F1F;
+    --black-65: #6F6866;
+    --black-40: #A7A5A5;
+    --black-20: #D3D2D2;
+    --white: #FFFCFA;
+    --white-transparent-30: #fffcfa4d;
+    background-color: var(--black);
+  }
+
+  .syllabus-container{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: var(--peach);
+    flex-wrap: wrap;
+    padding-left: 20px;
+    border-radius: 5px;
+    margin: 5px;
+  }
+
+  .syllabus-tile{
+    margin: 20px;
+    -webkit-box-shadow: 6px 9px 18px -3px rgba(0,0,0,0.39); 
+    box-shadow: 6px 9px 18px -3px rgba(0,0,0,0.39);
+    border-radius: 10px;
+    width: 210px;
+    background: var(--pink-dark);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+  }
+  
+  .syllabus-tile:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+  }
+    
+  .syllabus-tile img{
+    width: 190px;
+    border: 3px black inset;
+    margin: 5px 5px 0px 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+  }
+
+  .syllabus-lower{
+    display: flex;
+    padding: 5px;
+  }
+
+  .syllabus-description{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .syllabus-description p{
+    margin: 3px;
+  }
+
+  .syllabus-description p:nth-child(2){
+    font-size: small;
+  }

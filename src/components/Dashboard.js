@@ -1,17 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { getCohortByUserId } from '../services/fetch-cohorts';
+import { Link } from 'react-router-dom';
 import { getSyllabusByUserID } from '../services/fetch-syllabus';
 import { useStateContext } from '../StateProvider';
+import './Dashboard.css';
 
 export default function Dashboard() {
   const { user, setUser, getSyllabus, syllabus } = useStateContext();
   const [cohort, setCohort] = useState([]);
 
   useEffect(() => {
-    // async function getSyllabus() {
-    //   const syllabusList = await getSyllabusByUserID(user.id);
-    //   if (syllabusList.length > 0) setSyllabus(syllabusList);
-    // }
     async function getCohort() {
       const cohortList = await getCohortByUserId(user.id);
       if (cohortList.length > 0) setCohort(cohortList);
@@ -22,12 +20,26 @@ export default function Dashboard() {
   }, [user.id]);
 
   return (
-    <div>
+    <div className='syllabus-container' >
       {syllabus.map((syllabi, i) => (
-        <p key={i}>{syllabi.title}</p>
-      ))}
-      {cohort.map((coh, i) => (
-        <p key={i}>{coh.title}</p>
+        <Link key={i + syllabi.id} to={`/assignments/syllabus/${syllabi.id}`} className='syllabus-tile'>
+          <div>
+            <div className='syllabus-image'>
+              <img src={'./Alchademy.png'} />
+            </div>
+            <div className="syllabus-lower">
+              <div className='syllabus-description'>
+                <p>{syllabi.title}</p>
+                {/* have to get name of creator from sql backend */}
+                <p>created by:{syllabi.created_by}</p>
+              </div>
+              <span>
+                {syllabi.status === 'active' ? 'Active' : 'Complete'}
+              </span>
+            </div>
+            
+          </div>
+        </Link>
       ))}
     </div>
   );
