@@ -1,11 +1,11 @@
 import React from 'react';
 import { useStateContext } from '../StateProvider';
+import AccountModule from './AccountModule';
 import './AccountPage.css';
 
 export default function AccountPage() {
-  const { user, syllabus, assignment } = useStateContext();
+  const { user, syllabus } = useStateContext();
   console.log(syllabus);
-  console.log(assignment);
 
   return (
     <div className="account-page">
@@ -22,9 +22,10 @@ export default function AccountPage() {
           {user.role === 1 && 'Student'}
         </div>
       </div>
-      <div></div>
-      <div></div>
-      <div></div>
+      <div className="modules">
+        {syllabus.length > 0 &&
+          syllabus.map((syl) => <AccountModule key={syl.title} syllabus={syl} />)}
+      </div>
     </div>
   );
 }
