@@ -27,7 +27,7 @@ export async function getAssignmentsBySyllabusId(syllabus_id) {
 
 export async function getAssignmentsAndSubmissionsBySyllabusId(syllabus_id) {
   const rawResponse = await fetch(
-    `${process.env.REACT_APP_API_URL}/assignments/syllabus/${syllabus_id}/user`,
+    `${process.env.REACT_APP_API_URL}/assignments/user/syllabus/${syllabus_id}`,
     {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
