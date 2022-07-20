@@ -2,8 +2,6 @@ import { Button, Chip, Table, TableBody, TableCell, TableContainer, TableHead, T
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getAssignmentById } from '../services/fetch-assignments';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import { styled } from '@mui/material/styles';
 import { CheckCircle } from '@mui/icons-material';
 import MUIRichTextEditor from 'mui-rte';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
@@ -12,6 +10,7 @@ import { getAllAssignmentSubmissionsByUser, insertSubmission } from '../services
 import { useStateContext } from '../StateProvider';
 import SubmissionRow from './AssignmentComponents/SubmissionRow';
 import { convertToRaw } from 'draft-js';
+import LinkButton from './AssignmentComponents/LinkButton';
 
 export default function AssignmentDetail() {
   const { id } = useParams();
@@ -35,14 +34,6 @@ export default function AssignmentDetail() {
     getSubmissionsOnLoad();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  const ColorButton = styled(Button)(({ theme }) => ({
-    color: theme.palette.getContrastText('#221F1F'),
-    backgroundColor: '#221F1F',
-    '&:hover': {
-      backgroundColor: '#6F6866',
-    },
-  }));
 
   const handleSave = (data) => {
     setSubmissionText(data);
@@ -135,13 +126,9 @@ export default function AssignmentDetail() {
         </div>
       </div>
       <div className='column2'>
-        <div className='space-around app-container'>
-          <ColorButton variant='contained' startIcon={<GitHubIcon />}>
-              Template
-          </ColorButton>
-          <ColorButton variant='contained' startIcon={<GitHubIcon />}>
-              Example
-          </ColorButton>
+        <div className='space-around app-container flex-row'>
+          <LinkButton text={'Template'}/>
+          <LinkButton text={'Example'}/>
         </div>
         <form className='ticketForm app-container'>
           <h3>Submit Ticket for Help</h3>
