@@ -17,7 +17,7 @@ body {
   --black-20: #d3d2d2;
   --white: #fffcfa;
   --white-transparent-30: #fffcfa4d;
-  background-color: var(--black);
+  background-color: #dfd3c6;
 }
 .assignment-list {
   display: flex;
