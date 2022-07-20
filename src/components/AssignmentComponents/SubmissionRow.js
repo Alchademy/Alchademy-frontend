@@ -15,7 +15,9 @@ export default function SubmissionRow({ row, total_points }) {
           overflow: 'auto',
           position: 'relative',
           backgroundColor: '#FFFCFA',
-          borderRadius: '20px'
+          padding: '5px',
+          paddingLeft: '20px',
+          borderRadius: '10px'
         }
       }
     }
