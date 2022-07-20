@@ -1,0 +1,83 @@
+body{
+    --pink: #FAF0EA;
+    --pink-dark: #D4C9bA;
+    --pink-light: #DFD3C6;
+    --peach: #E89062;
+    --peach-dark: #72442A;
+    --peach-extra-dark: #533321;
+    --peach-light: #e89f78;
+    --blue: #A2D7D2;
+    --blue-medium: #65A7AB;
+    --blue-dark: #1F4E5C;
+    --gold: #DDA438;
+    --gold-dark: #9F7724;
+    --black: #221F1F;
+    --black-65: #6F6866;
+    --black-40: #A7A5A5;
+    --black-20: #D3D2D2;
+    --white: #FFFCFA;
+    --white-transparent-30: #fffcfa4d;
+    
+}
+
+.navBar{
+    background-color: var(--black);
+    display: flex;
+    justify-content: space-between;
+    color: white;
+}
+
+.left{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 0px 0px 5px 20px;
+}
+
+.left p{
+    font-size: larger;
+    font-weight: 500;
+    margin: 0px;
+}
+
+.right{
+    height: 90px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding-right: 20px;
+}
+.right ul{
+    display: flex;
+    list-style-type: none;
+}
+
+.right li{
+    margin: 10px;
+    color: var(--black-20);
+    display: flex;
+}
+
+.link{
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+}
+
+.link:hover{
+    color: var(--gold)
+}
+
+.right button{
+    color: black;
+    background: var(--gold);
+    border-radius: 10px;
+    width: 80px;
+    margin-left: 20px;
+}
+
+.right button:hover{
+    background-color: var(--blue);
+    cursor: pointer;
+}

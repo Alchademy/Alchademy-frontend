@@ -33,11 +33,11 @@ export default function Dashboard() {
                 {/* have to get name of creator from sql backend */}
                 <p>created by:{syllabi.created_by}</p>
               </div>
-              <span>
-                {syllabi.status === 'active' ? 'Active' : 'Complete'}
+              <span className='completeOrActive'>
+                {syllabi.status_id === 1 ? <p className='active'>Active</p>
+                  : <p className='complete'>Complete</p>}
               </span>
             </div>
-            
           </div>
         </Link>
       ))}

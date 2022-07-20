@@ -19,10 +19,10 @@ import Nav from './components/Nav';
 export default function App() {
   const { user, setUser } = useStateContext();
 
-  async function handleLogout() {
-    await logout();
-    window.location.replace('/');
-  }
+  // async function handleLogout() {
+  //   await logout();
+  //   window.location.replace('/');
+  // }
 
   useEffect(() => {
     async function load() {
@@ -36,7 +36,7 @@ export default function App() {
   return (
     <Router>
       <div>
-        <button onClick={handleLogout}>Logout</button>
+        {/* <button onClick={handleLogout}>Logout</button> */}
         {user.id ? <Nav /> : ''}
 
         <Switch>
