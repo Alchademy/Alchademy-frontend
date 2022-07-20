@@ -23,12 +23,7 @@ export default function AccountPage() {
               <img src={user.avatar} />
             </div>
           )}
-          <div className="username">
-            {user.username} - {user.role === 4 && 'Admin'}
-            {user.role === 3 && 'Instructor'}
-            {user.role === 2 && 'TA'}
-            {user.role === 1 && 'Student'}
-          </div>
+          <div className="username">Grades for {user.username}</div>
         </div>
         <FormControl
           className="module-select"
