@@ -38,7 +38,6 @@ export default function Dashboard() {
                   : <p className='complete'>Complete</p>}
               </span>
             </div>
-            
           </div>
         </Link>
       ))}
