@@ -28,16 +28,17 @@ body {
   border-radius: 5px;
   margin: 5px;
   height: calc(100vh - 100px);
-  min-width: 740px;
+  min-width: 746px;
 }
 
 .account-page-content {
-  background-color: var(--pink-dark);
+  background-color: var(--pink-light);
   padding: 20px 40px;
   border-radius: 10px;
   margin: 20px;
   min-width: 620px;
   box-shadow: 6px 9px 18px -3px rgb(0 0 0 / 39%);
+  border: 3px black inset;
 }
 
 .avatar-and-username {
