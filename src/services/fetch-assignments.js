@@ -25,9 +25,9 @@ export async function getAssignmentsBySyllabusId(syllabus_id) {
   return data;
 }
 
-export async function getAssignmentById(id) {
+export async function getAssignmentsAndSubmissionsBySyllabusId(syllabus_id) {
   const rawResponse = await fetch(
-    `${process.env.REACT_APP_API_URL}/assignments/${id}`,
+    `${process.env.REACT_APP_API_URL}/assignments/user/syllabus/${syllabus_id}`,
     {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
@@ -35,6 +35,18 @@ export async function getAssignmentById(id) {
       mode: 'cors',
     }
   );
+  const data = await rawResponse.json();
+
+  return data;
+}
+
+export async function getAssignmentById(id) {
+  const rawResponse = await fetch(`${process.env.REACT_APP_API_URL}/assignments/${id}`, {
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json' },
+    credentials: 'include',
+    mode: 'cors',
+  });
   const data = await rawResponse.json();
 
   return data;
