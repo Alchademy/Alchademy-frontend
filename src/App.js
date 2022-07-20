@@ -3,7 +3,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
   Redirect,
   // useHistory,
 } from 'react-router-dom';
@@ -13,7 +12,7 @@ import AssignmentList from './components/AssignmentList';
 import AuthPage from './components/AuthPage';
 import Dashboard from './components/Dashboard';
 import AssignmentDetail from './components/AssignmentDetail';
-import { getUser, logout } from './services/fetch-users';
+import { getUser } from './services/fetch-users';
 import { useStateContext } from './StateProvider';
 import Nav from './components/Nav';
 
