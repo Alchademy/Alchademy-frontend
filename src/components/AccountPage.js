@@ -9,20 +9,20 @@ export default function AccountPage() {
 
   return (
     <div className="account-page">
-      <div className="avatar-and-username">
-        {user.avatar && (
-          <div className="avatar">
-            <img src={user.avatar} />
+      <div className="account-page-content">
+        <div className="avatar-and-username">
+          {user.avatar && (
+            <div className="avatar">
+              <img src={user.avatar} />
+            </div>
+          )}
+          <div className="username">
+            {user.username} - {user.role === 4 && 'Admin'}
+            {user.role === 3 && 'Instructor'}
+            {user.role === 2 && 'TA'}
+            {user.role === 1 && 'Student'}
           </div>
-        )}
-        <div className="username">
-          {user.username} - {user.role === 4 && 'Admin'}
-          {user.role === 3 && 'Instructor'}
-          {user.role === 2 && 'TA'}
-          {user.role === 1 && 'Student'}
         </div>
-      </div>
-      <div className="modules">
         {syllabus.length > 0 &&
           syllabus.map((syl) => <AccountModule key={syl.title} syllabus={syl} />)}
       </div>

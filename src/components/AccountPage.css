@@ -1,8 +1,37 @@
+body {
+  --pink: #FAF0EA;
+  --pink-dark: #D4C9bA;
+  --pink-light: #DFD3C6;
+  --peach: #E89062;
+  --peach-dark: #72442A;
+  --peach-extra-dark: #533321;
+  --peach-light: #e89f78;
+  --blue: #A2D7D2;
+  --blue-medium: #65A7AB;
+  --blue-dark: #1F4E5C;
+  --gold: #DDA438;
+  --gold-dark: #9F7724;
+  --black: #221F1F;
+  --black-65: #6F6866;
+  --black-40: #A7A5A5;
+  --black-20: #D3D2D2;
+  --white: #FFFCFA;
+  --white-transparent-30: #fffcfa4d;
+  background-color: var(--black);
+}
+
 .account-page {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: var(--peach);
+}
+
+.account-page-content {
+  background-color: var(--white);
+  padding: 10px;
+  border-radius: 10px;
 }
 
 .avatar-and-username {
