@@ -1,5 +1,6 @@
 import { Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { getAssignmentsAndSubmissionsBySyllabusId } from '../services/fetch-assignments';
 
 export default function AccountModule({ syllabus }) {
@@ -100,7 +101,7 @@ export default function AccountModule({ syllabus }) {
                         borderColor: 'rgba(0, 0, 0, 0.35)',
                       }}
                     >
-                      {assign.title}
+                      <Link to={`/assignments/${assign.id}`}>{assign.title}</Link>
                     </TableCell>
                     <TableCell
                       sx={{
@@ -141,13 +142,4 @@ export default function AccountModule({ syllabus }) {
       )}
     </div>
   );
-}
-
-{
-  /* <div>
-{submission.status_id === 4 && 'Completed'}
-{submission.status_id === 3 && 'Active'}
-{submission.status_id === 2 && 'Active'}
-{submission.status_id === 1 && 'Pending'}
-</div> */
 }

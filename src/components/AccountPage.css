@@ -17,6 +17,7 @@ body {
   --black-20: #D3D2D2;
   --white: #FFFCFA;
   --white-transparent-30: #fffcfa4d;
+  --link-color: #0369A3;
   background-color: var(--black);
 }
 
@@ -73,4 +74,8 @@ body {
 
 .account-page-assignment div{
   padding: 0px 5px;
+}
+
+.assignment-row a {
+  color: var(--link-color)
 }
