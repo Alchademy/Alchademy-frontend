@@ -1,4 +1,4 @@
-import { Button, Chip, TextField } from '@mui/material';
+import { Button, Chip, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getAssignmentById } from '../services/fetch-assignments';
@@ -55,6 +55,8 @@ export default function AssignmentDetail() {
 
   const editorTheme = createMuiTheme();
 
+  console.log(submissions);
+
   Object.assign(editorTheme, {
     overrides: {
       MUIRichTextEditor: {
@@ -90,6 +92,7 @@ export default function AssignmentDetail() {
         </div>
         <div className='editContainer'>
           <h2>Assignment Description</h2>
+          <h4>Total Points: {activeAssignment.total_points}</h4>
           <div className='assignmentDescription'>
             { markupAssignmentDescription() }
           </div>
@@ -107,7 +110,24 @@ export default function AssignmentDetail() {
         </form>
         <div className='editContainer'>
           <h2>Past Submissions</h2>
-          {submissions ? submissions.map((submission, i) => <p key={i}>{submission.text}</p>) : ''}
+          <TableContainer>
+            <Table aria-label="collapsible table">
+              <TableHead>
+                <TableRow>
+                  <TableCell />
+                  <TableCell>Submission</TableCell>
+                  <TableCell align="right">Submitted On</TableCell>
+                  <TableCell align="right">Status</TableCell>
+                  <TableCell align="right">Grade</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {/* {rows.map((row) => (
+                  <Row key={row.name} row={row} />
+                ))} */}
+              </TableBody>
+            </Table>
+          </TableContainer>
         </div>
       </div>
       <div className='column2'>

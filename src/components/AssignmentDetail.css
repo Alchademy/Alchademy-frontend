@@ -48,7 +48,6 @@
     width: 60%;
     overflow: auto;
     position: relative;
-    border: 2px solid var(--black-65);
     padding: 25px;
 }
 
