@@ -13,10 +13,9 @@ export default function Dashboard() {
       const cohortList = await getCohortByUserId(user.id);
       if (cohortList.length > 0) setCohort(cohortList);
     }
-
     getSyllabus();
     getCohort();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user.id]);
 
   return (
