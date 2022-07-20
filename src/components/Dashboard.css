@@ -17,7 +17,7 @@ body {
     --black-20: #D3D2D2;
     --white: #FFFCFA;
     --white-transparent-30: #fffcfa4d;
-    /* background-color: var(--black); */
+    background-color: var(--black);
   }
 
   .syllabus-container{
