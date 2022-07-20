@@ -2,16 +2,15 @@ import { Button, Chip, Table, TableBody, TableCell, TableContainer, TableHead, T
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getAssignmentById } from '../services/fetch-assignments';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import { styled } from '@mui/material/styles';
 import { CheckCircle } from '@mui/icons-material';
 import MUIRichTextEditor from 'mui-rte';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import './AssignmentDetail.css';
 import { getAllAssignmentSubmissionsByUser, insertSubmission } from '../services/fetch-sumbissions';
 import { useStateContext } from '../StateProvider';
-import SubmissionRow from './SubmissionRow';
+import SubmissionRow from './AssignmentComponents/SubmissionRow';
 import { convertToRaw } from 'draft-js';
+import LinkButton from './AssignmentComponents/LinkButton';
 
 export default function AssignmentDetail() {
   const { id } = useParams();
@@ -36,21 +35,6 @@ export default function AssignmentDetail() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const ColorButton = styled(Button)(({ theme }) => ({
-    color: theme.palette.getContrastText('#221F1F'),
-    backgroundColor: '#221F1F',
-    '&:hover': {
-      backgroundColor: '#6F6866',
-    },
-  }));
-
-  function createMarkup() {
-    return { __html: `${activeAssignment.description}` };
-  }
-  function markupAssignmentDescription() {
-    return <div dangerouslySetInnerHTML={createMarkup()} />;
-  }
-
   const handleSave = (data) => {
     setSubmissionText(data);
   };
@@ -67,7 +51,7 @@ export default function AssignmentDetail() {
       MUIRichTextEditor: {
         root: {
           marginTop: '20px',
-          width: '80%',
+          width: '95%',
           minHeight: '200px',
           maxHeight: '200px',
           overflow: 'auto',
@@ -88,15 +72,17 @@ export default function AssignmentDetail() {
   }
 
   return ( 
-    <div className='titleLine'>
+    <div className='app-page flex-row'>
       <div className='column1'>
-        <div className='space-between titleContainer'>
+        <div className='space-between app-container'>
           <h1 className='assignmentTitle'>{activeAssignment.title}</h1>
           <Chip label={activeAssignment.status} variant="outlined" color="success" icon={<CheckCircle />} />
         </div>
-        <div className='editContainer'>
-          <h2>Assignment Description</h2>
-          <h3>Total Points: {activeAssignment.total_points}</h3>
+        <div className='app-container'>
+          <div className='flex-row space-between'>
+            <h2>Assignment Description</h2>
+            <h3>Total Points: {activeAssignment.total_points}</h3>
+          </div>
           <ThemeProvider theme={editorTheme}>
             <MUIRichTextEditor
               inlineToolbar={false}
@@ -106,7 +92,7 @@ export default function AssignmentDetail() {
             />
           </ThemeProvider>
         </div>
-        <div className='editContainer'>
+        <div className='app-container'>
           <h2>Submit Assignment</h2>
           <ThemeProvider theme={editorTheme}>
             <MUIRichTextEditor
@@ -118,7 +104,7 @@ export default function AssignmentDetail() {
           </ThemeProvider>
           <Button onClick={createSubmission}>Submit</Button>
         </div>
-        <div className='editContainer'>
+        <div className='app-container'>
           <h2>Past Submissions</h2>
           <TableContainer>
             <Table>
@@ -140,15 +126,11 @@ export default function AssignmentDetail() {
         </div>
       </div>
       <div className='column2'>
-        <div className='space-around titleContainer'>
-          <ColorButton variant='contained' startIcon={<GitHubIcon />}>
-              Template
-          </ColorButton>
-          <ColorButton variant='contained' startIcon={<GitHubIcon />}>
-              Example
-          </ColorButton>
+        <div className='space-around app-container flex-row'>
+          <LinkButton text={'Template'}/>
+          <LinkButton text={'Example'}/>
         </div>
-        <form className='ticketForm editContainer'>
+        <form className='ticketForm app-container'>
           <h3>Submit Ticket for Help</h3>
           <TextField id="standard-basic" label="Trouble With" variant="standard" helperText="I am having trouble with"/>
           <TextField id="standard-basic" label="Tried" variant="standard" helperText="Solutions you have tried"/>
