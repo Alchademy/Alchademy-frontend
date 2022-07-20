@@ -8,18 +8,30 @@ import { CheckCircle } from '@mui/icons-material';
 import MUIRichTextEditor from 'mui-rte';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import './AssignmentDetail.css';
+import { getAllAssignmentSubmissionsByUser, insertSubmission } from '../services/fetch-sumbissions';
+import { useStateContext } from '../StateProvider';
 
 export default function AssignmentDetail() {
   const { id } = useParams();
+  const { user } = useStateContext();
   const [activeAssignment, setActiveAssignment] = useState({});
+  const [submissionText, setSubmissionText] = useState({});
+  const [submissions, setSubmissions] = useState(null);
+
+  async function getActiveAssignment() {
+    const assignment = await getAssignmentById(id);
+    setActiveAssignment(assignment);
+  }
+
+  async function getSubmissionsOnLoad() {
+    const submissionsList = await getAllAssignmentSubmissionsByUser(id, user.id);
+    setSubmissions(submissionsList);
+  }
 
   useEffect(() => {
-    async function getActiveAssignment() {
-      const assignment = await getAssignmentById(id);
-      setActiveAssignment(assignment);
-    }
     getActiveAssignment();
-  }, [id]);
+    getSubmissionsOnLoad();
+  }, []);
 
   const ColorButton = styled(Button)(({ theme }) => ({
     color: theme.palette.getContrastText('#221F1F'),
@@ -29,8 +41,6 @@ export default function AssignmentDetail() {
     },
   }));
 
-  console.log(activeAssignment);
-
   function createMarkup() {
     return { __html: `${activeAssignment.description}` };
   }
@@ -39,12 +49,17 @@ export default function AssignmentDetail() {
   }
 
   const save = (data) => {
-    console.log(data);
+    setSubmissionText(data);
   };
-  
+
   const myTheme = createTheme({
-    // Need to setup theme later
+    // Set up your custom MUI theme here
   });
+
+  async function createSubmission(e) {
+    e.preventDefault();
+    await insertSubmission(submissionText, id, user.id);
+  }
 
   return ( 
     <div>
@@ -60,19 +75,20 @@ export default function AssignmentDetail() {
               { markupAssignmentDescription() }
             </div>
           </div>
-          <form>
+          <form onSubmit={createSubmission}>
             <h2>Submit Assignment</h2>
             <ThemeProvider theme={myTheme}>
               <MUIRichTextEditor
                 label="Type something here..."
-                onSave={save}
                 inlineToolbar={true}
+                onChange={save}
               />
             </ThemeProvider>
-            <Button>Submit</Button>
+            <button>Submit</button>
           </form>
           <div>
             <h2>Past Submissions</h2>
+            {submissions ? submissions.map((submission, i) => <p key={i}>{submission.text}</p>) : ''}
           </div>
         </div>
         <div>
