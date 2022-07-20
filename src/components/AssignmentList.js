@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-
 import { useParams } from 'react-router-dom';
 import { getAssignmentsBySyllabusId } from '../services/fetch-assignments';
 import { useStateContext } from '../StateProvider';
@@ -8,8 +7,7 @@ import './Assignments.css';
 import { getSyllabusByID } from '../services/fetch-syllabus';
 
 export default function AssignmentList() {
-  const { syllabus, assignment, getSyllabusAssignments, setAssignment, setSyllabus } =
-    useStateContext();
+  const { syllabus, assignment, setAssignment, setSyllabus } = useStateContext();
   const { id } = useParams();
 
   useEffect(() => {
@@ -21,12 +19,10 @@ export default function AssignmentList() {
     }
     async function getSyllabusName() {
       const syllabus = await getSyllabusByID(id);
-      console.log(syllabus);
       setSyllabus(syllabus);
     }
     getAssignments();
     getSyllabusName();
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [syllabus.id]);
 
