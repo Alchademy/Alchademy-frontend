@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+.auth-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.periodic-table{
+    display: grid;
+    grid-template-columns: repeat(18, 50px);
+    grid-template-rows: repeat (10, 50px);
+    position: relative;
+    position: absolute;
+    top: 22%;
+    animation: fade 4s forwards ease-out;
+}
+
+.element{
+    border: black solid 3px;
+    /* margin: 5px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.element:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+    font-size: 30px;
+}
+
+.logo{
+    background-color: var(--peach);
+    border: solid black 5px;
+    height: 150px;
+    width: 40%;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 6rem;
+    font-weight: 500;
+    font-family: 'Open Sans', Georgia, 'Times New Roman', Times, serif;
+    z-index: 99;
+}
+
+.login-button{
+   /* position: absolute;
+   top: 50%;
+   transform: translate(-50%, -50%); */
+   margin: 50px;
+   z-index: 99;
+   animation: fadeIn 5s forwards ease-in;
+   background: rgba(255, 255, 255, .8);
+   padding: 20px;
+   border-radius: 10px;
+   font-size: 30px;
+   font-family: 'Open Sans', Georgia, 'Times New Roman', Times, serif;
+   font-weight: 500;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+
+.login-button img{
+    height: 50px;
+}
+
+.login-button p{
+    border-bottom: rgb(98, 98, 98) solid 4px;
+    width: 100%
+}
+
+.login-button button{
+   background-color: var(--peach);
+   border: black solid 3px;
+   height: 60px;
+   width: 150px;
+   
+}
+
+.login-button button:hover{
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+@keyframes fade {
+    60%{
+        transform: scale(1);
+        opacity: .5;
+    }
+    100%{
+        transform: scale(.8);
+        opacity: .3;
+    }
+}
+
+@keyframes fadeIn {
+    0%{ opacity: 0;}
+    60%{opacity: .4;}
+    70%{opacity: .6 }
+    100%{opacity: .96}
+}
+
+@media only screen and (max-width: 1320px) {
+    .logo{ font-size: 4rem}
+}
+
+@media only screen and (max-width: 870px) {
+    .logo{ font-size: 3rem}
+    .periodic-table{
+        transform: scale(.2);
+        height: 10%;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    .logo{ font-size: 2rem}
+    .periodic-table{
+        height: 10%;
+    }
+}
