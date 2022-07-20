@@ -37,10 +37,19 @@ body {
   border-radius: 10px;
   width: 210px;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
   text-decoration: none;
   color: black;
   font-weight: 700;
+}
+
+.assignment-list-div p {
+  display: flex;
+  text-align: left;
+}
+
+.assignment-tile {
+  text-decoration: none;
 }
 
 .assignment-tile:hover {
@@ -51,4 +60,8 @@ body {
 .syllabus-title {
   color: white;
   background-color: #6f6866;
+  padding: 30px;
+  border-radius: 10px;
+  font-size: 2rem;
+  font-weight: 500;
 }

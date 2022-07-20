@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+
 import { useParams } from 'react-router-dom';
 import { getAssignmentsBySyllabusId } from '../services/fetch-assignments';
 import { useStateContext } from '../StateProvider';
@@ -35,9 +35,7 @@ export default function AssignmentList() {
       <div className="syllabus-title">{syllabus.title}</div>
       <div className="assignment-list">
         {assignment.map((assgn, i) => (
-          <Link className="assignment-tile" key={i + assgn.id} to={`/assignments/${assgn.id}`}>
-            <Assignment key={assgn.title + i} assgn={assgn} />
-          </Link>
+          <Assignment key={assgn.title + i} assgn={assgn} />
         ))}
       </div>
     </div>
