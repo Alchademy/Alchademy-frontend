@@ -25,13 +25,14 @@
     align-items: center;
     height: 50px;
     width: 50px;
-    font-size: larger;
+    font-size: 20px;
     font-weight: 600;
 }
 
 .element:hover{
     transform: scale(1.1);
     cursor: pointer;
+    font-size: 30px;
 }
 
 .logo{
@@ -106,7 +107,6 @@
     60%{opacity: .4;}
     70%{opacity: .6 }
     100%{opacity: .96}
-    
 }
 
 @media only screen and (max-width: 1320px) {

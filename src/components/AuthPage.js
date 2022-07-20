@@ -15,7 +15,7 @@ export default function AuthPage() {
       <div className='login-button'>
         Login with Github 
         <p></p>
-        <button onClick={handleLogin} ><img src='./githublogo.png' /></button>
+        <button onClick={handleLogin} ><img src='./githublogo.png'/></button>
       </div>
       
       <div className='periodic-table'>
