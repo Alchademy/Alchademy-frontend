@@ -8,6 +8,7 @@ export function StateProvider({ children }) {
   const [user, setUser] = useState({});
   const [syllabus, setSyllabus] = useState([]);
   const [assignment, setAssignment] = useState([]);
+  const [submissionText, setSubmissionText] = useState({});
   const state = {
     user,
     setUser,
@@ -17,6 +18,8 @@ export function StateProvider({ children }) {
     assignment,
     setAssignment,
     getSyllabusAssignments,
+    submissionText,
+    setSubmissionText
   };
 
   async function getSyllabus() {
