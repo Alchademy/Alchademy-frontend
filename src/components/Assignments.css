@@ -17,7 +17,7 @@ body {
   --black-20: #d3d2d2;
   --white: #fffcfa;
   --white-transparent-30: #fffcfa4d;
-  background-color: var(--black);
+  background-color: #dfd3c6;
 }
 .assignment-list {
   display: flex;
@@ -37,10 +37,19 @@ body {
   border-radius: 10px;
   width: 210px;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
   text-decoration: none;
   color: black;
   font-weight: 700;
+}
+
+.assignment-list-div p {
+  display: flex;
+  text-align: left;
+}
+
+.assignment-tile {
+  text-decoration: none;
 }
 
 .assignment-tile:hover {
@@ -49,6 +58,10 @@ body {
 }
 
 .syllabus-title {
-  color: white;
+  color: black;
   background-color: #6f6866;
+  padding: 30px;
+  border-radius: 10px;
+  font-size: 2rem;
+  font-weight: 500;
 }
