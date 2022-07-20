@@ -38,6 +38,9 @@ export default function Nav() {
           <li>
             <Link to="/account" className='link'>Account</Link>
           </li>
+          <li>
+            <Link to="/assignments/1" className='link'>Assignment</Link>
+          </li>
           <input className='navSearchBar'/>
           <button onClick={handleLogout}>Logout</button>
         </ul>
