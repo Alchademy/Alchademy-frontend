@@ -19,9 +19,36 @@ body {
   --white-transparent-30: #fffcfa4d;
   background-color: var(--black);
 }
-.assignment-list-div {
-  color: white;
+.assignment-list {
+  display: flex;
+  flex-wrap: wrap;
 }
+.assignment-list-div {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: var(--peach);
+  flex-wrap: wrap;
+  padding-left: 20px;
+  border-radius: 5px;
+  margin: 20px;
+  -webkit-box-shadow: 6px 9px 18px -3px rgba(0, 0, 0, 0.39);
+  box-shadow: 6px 9px 18px -3px rgba(0, 0, 0, 0.39);
+  border-radius: 10px;
+  width: 210px;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  font-weight: 700;
+}
+
+.assignment-tile:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
 .syllabus-title {
   color: white;
+  background-color: #6f6866;
 }
