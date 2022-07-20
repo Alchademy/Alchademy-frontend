@@ -6,10 +6,12 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import { styled } from '@mui/material/styles';
 import { CheckCircle } from '@mui/icons-material';
 import MUIRichTextEditor from 'mui-rte';
-import { ThemeProvider, createMuiTheme } from '@mui/material/styles';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 import './AssignmentDetail.css';
 import { getAllAssignmentSubmissionsByUser, insertSubmission } from '../services/fetch-sumbissions';
 import { useStateContext } from '../StateProvider';
+import SubmissionRow from './SubmissionRow';
+import { convertToRaw } from 'draft-js';
 
 export default function AssignmentDetail() {
   const { id } = useParams();
@@ -49,19 +51,22 @@ export default function AssignmentDetail() {
     return <div dangerouslySetInnerHTML={createMarkup()} />;
   }
 
-  const save = (data) => {
+  const handleSave = (data) => {
     setSubmissionText(data);
   };
 
-  const editorTheme = createMuiTheme();
+  const handleChange = (event) => {
+    const content = JSON.stringify(convertToRaw(event.getCurrentContent()));
+    setSubmissionText(content);
+  };
 
-  console.log(submissions);
+  const editorTheme = createTheme();
 
   Object.assign(editorTheme, {
     overrides: {
       MUIRichTextEditor: {
         root: {
-          marginTop: 20,
+          marginTop: '20px',
           width: '80%',
           minHeight: '200px',
           maxHeight: '200px',
@@ -69,10 +74,8 @@ export default function AssignmentDetail() {
           position: 'relative',
           backgroundColor: '#FFFCFA',
           padding: '5px',
+          paddingLeft: '20px',
           borderRadius: '20px'
-        },
-        editor: {
-          border: '1px solid gray' 
         }
       }
     }
@@ -81,6 +84,7 @@ export default function AssignmentDetail() {
   async function createSubmission(e) {
     e.preventDefault();
     await insertSubmission(submissionText, id, user.id);
+    window.location.reload(false);
   }
 
   return ( 
@@ -92,29 +96,34 @@ export default function AssignmentDetail() {
         </div>
         <div className='editContainer'>
           <h2>Assignment Description</h2>
-          <h4>Total Points: {activeAssignment.total_points}</h4>
-          <div className='assignmentDescription'>
-            { markupAssignmentDescription() }
-          </div>
+          <h3>Total Points: {activeAssignment.total_points}</h3>
+          <ThemeProvider theme={editorTheme}>
+            <MUIRichTextEditor
+              inlineToolbar={false}
+              toolbar={false}
+              readOnly={true}
+              defaultValue={activeAssignment.description}
+            />
+          </ThemeProvider>
         </div>
-        <form onSubmit={createSubmission} className='editContainer'>
+        <div className='editContainer'>
           <h2>Submit Assignment</h2>
           <ThemeProvider theme={editorTheme}>
             <MUIRichTextEditor
               label="Type something here..."
               inlineToolbar={true}
-              onChange={save}
+              onChange={handleChange}
+              onSave={handleSave}
             />
           </ThemeProvider>
-          <button>Submit</button>
-        </form>
+          <Button onClick={createSubmission}>Submit</Button>
+        </div>
         <div className='editContainer'>
           <h2>Past Submissions</h2>
           <TableContainer>
-            <Table aria-label="collapsible table">
+            <Table>
               <TableHead>
                 <TableRow>
-                  <TableCell />
                   <TableCell>Submission</TableCell>
                   <TableCell align="right">Submitted On</TableCell>
                   <TableCell align="right">Status</TableCell>
@@ -122,16 +131,16 @@ export default function AssignmentDetail() {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {/* {rows.map((row) => (
-                  <Row key={row.name} row={row} />
-                ))} */}
+                {submissions ? submissions.map((submission, i) => (
+                  <SubmissionRow key={i} data={submissionText} row={submission} total_points={activeAssignment.total_points} />
+                )) : null}
               </TableBody>
             </Table>
           </TableContainer>
         </div>
       </div>
       <div className='column2'>
-        <div className='space-around editContainer'>
+        <div className='space-around titleContainer'>
           <ColorButton variant='contained' startIcon={<GitHubIcon />}>
               Template
           </ColorButton>
