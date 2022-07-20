@@ -5,7 +5,6 @@ import './AccountPage.css';
 
 export default function AccountPage() {
   const { user, syllabus } = useStateContext();
-  console.log(syllabus);
 
   return (
     <div className="account-page">
@@ -24,7 +23,10 @@ export default function AccountPage() {
           </div>
         </div>
         {syllabus.length > 0 &&
-          syllabus.map((syl) => <AccountModule key={syl.title} syllabus={syl} />)}
+          syllabus
+            .slice(0)
+            .reverse()
+            .map((syl) => <AccountModule key={syl.title} syllabus={syl} />)}
       </div>
     </div>
   );
