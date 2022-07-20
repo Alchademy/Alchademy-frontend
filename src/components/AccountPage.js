@@ -5,13 +5,14 @@ import AccountModule from './AccountModule';
 import './AccountPage.css';
 
 export default function AccountPage() {
-  const { user, syllabus } = useStateContext();
+  const { user, syllabus, getSyllabusAssignments } = useStateContext();
   const [selectedModule, setSelectedModule] = useState({});
 
   useEffect(() => {
     if (syllabus.length > 0) {
       setSelectedModule(syllabus[0]);
     }
+    getSyllabusAssignments();
   }, [syllabus]);
 
   return (
