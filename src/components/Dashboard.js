@@ -6,7 +6,7 @@ import './Dashboard.css';
 
 export default function Dashboard() {
   const { user, getSyllabus, syllabus } = useStateContext();
-  const [setCohort] = useState([]);
+  const [cohort, setCohort] = useState([]);
 
   useEffect(() => {
     async function getCohort() {
