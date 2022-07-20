@@ -34,6 +34,7 @@ export default function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  console.log(user);
   return (
     <Router>
       <div className="App">

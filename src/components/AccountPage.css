@@ -28,7 +28,7 @@ body {
   background-color: var(--peach);
   border-radius: 5px;
   margin: 5px;
-  height: calc(100vh - 100px);
+  min-height: calc(100vh - 100px);
   min-width: 746px;
 }
 
