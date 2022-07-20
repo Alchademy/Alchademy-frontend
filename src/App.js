@@ -17,7 +17,6 @@ import { getUser, logout } from './services/fetch-users';
 import { useStateContext } from './StateProvider';
 import Nav from './components/Nav';
 
-
 export default function App() {
   const { user, setUser } = useStateContext();
 
@@ -37,7 +36,7 @@ export default function App() {
 
   return (
     <Router>
-      <div>
+      <div className="App">
         {/* <button onClick={handleLogout}>Logout</button> */}
         {user.id ? <Nav /> : ''}
 
