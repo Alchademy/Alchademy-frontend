@@ -24,3 +24,18 @@ export async function getAssignmentsBySyllabusId(syllabus_id) {
 
   return data;
 }
+
+export async function getAssignmentById(id) {
+  const rawResponse = await fetch(
+    `${process.env.REACT_APP_API_URL}/assignments/${id}`,
+    {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      mode: 'cors',
+    }
+  );
+  const data = await rawResponse.json();
+
+  return data;
+}
