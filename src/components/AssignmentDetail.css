@@ -1,0 +1,87 @@
+.ColorScheme {
+  text-align: center;
+  --pink: #FAF0EA;
+  --pink-dark: #D4C9bA;
+  --pink-light: #DFD3C6;
+  --peach: #E89062;
+  --peach-dark: #72442A;
+  --peach-extra-dark: #533321;
+  --peach-light: #e89f78;
+  --blue: #A2D7D2;
+  --blue-medium: #65A7AB;
+  --blue-dark: #1F4E5C;
+  --gold: #DDA438;
+  --gold-dark: #9F7724;
+  --black: #221F1F;
+  --black-65: #6F6866;
+  --black-40: #A7A5A5;
+  --black-20: #D3D2D2;
+  --white: #FFFCFA;
+  --white-transparent-30: #fffcfa4d;
+}
+
+.titleLine {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.space-between {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+}
+
+.space-around {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+}
+
+.assignmentDescription {
+    max-height: 200px;
+    width: 60%;
+    overflow: auto;
+    position: relative;
+    padding: 25px;
+}
+
+.margin-top {
+  margin-top: 40px;
+}
+
+.ticketForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.editContainer {
+  background-color: var(--black-20);
+  color: var(--black);
+  margin: 10px;
+  border-radius: 20px;
+  padding: 7px;
+  min-height: 10vh;
+}
+
+.titleContainer {
+  background-color: var(--peach);
+  color: var(--black);
+  margin: 10px;
+  border-radius: 20px;
+  padding: 7px;
+  height: 10vh;
+}
+
+.column1 {
+  width: 64vw;
+}
+
+.column2 {
+  width: 34vw;
+}

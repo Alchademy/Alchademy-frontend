@@ -12,17 +12,19 @@ import AccountPage from './components/AccountPage';
 import AssignmentList from './components/AssignmentList';
 import AuthPage from './components/AuthPage';
 import Dashboard from './components/Dashboard';
+import AssignmentDetail from './components/AssignmentDetail';
 import { getUser, logout } from './services/fetch-users';
 import { useStateContext } from './StateProvider';
 import Nav from './components/Nav';
 
+
 export default function App() {
   const { user, setUser } = useStateContext();
 
-  async function handleLogout() {
-    await logout();
-    window.location.replace('/');
-  }
+  // async function handleLogout() {
+  //   await logout();
+  //   window.location.replace('/');
+  // }
 
   useEffect(() => {
     async function load() {
@@ -30,16 +32,14 @@ export default function App() {
       setUser(user);
     }
     load();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
 
   return (
     <Router>
       <div>
-        <button onClick={handleLogout}>Logout</button>
-        {user.id ? <Nav/> : ''}
-       
+        {/* <button onClick={handleLogout}>Logout</button> */}
+        {user.id ? <Nav /> : ''}
 
         <Switch>
           <Route exact path="/">
@@ -54,8 +54,11 @@ export default function App() {
           <Route exact path="/dashboard">
             {user.id ? <Dashboard /> : <Redirect to="/" />}
           </Route>
-          <Route exact path="/assignments">
+          <Route exact path="/assignments/syllabus/:id">
             {user.id ? <AssignmentList /> : <Redirect to="/" />}
+          </Route>
+          <Route exact path="/assignments/:id">
+            {user.id ? <AssignmentDetail /> : <Redirect to="/" />}
           </Route>
         </Switch>
       </div>
