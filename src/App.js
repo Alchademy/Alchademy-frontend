@@ -30,16 +30,14 @@ export default function App() {
       setUser(user);
     }
     load();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
 
   return (
     <Router>
       <div>
         {/* <button onClick={handleLogout}>Logout</button> */}
-        {user.id ? <Nav/> : ''}
-       
+        {user.id ? <Nav /> : ''}
 
         <Switch>
           <Route exact path="/">
@@ -54,7 +52,7 @@ export default function App() {
           <Route exact path="/dashboard">
             {user.id ? <Dashboard /> : <Redirect to="/" />}
           </Route>
-          <Route exact path="/assignments">
+          <Route exact path="/assignments/syllabus/:id">
             {user.id ? <AssignmentList /> : <Redirect to="/" />}
           </Route>
         </Switch>
