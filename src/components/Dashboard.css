@@ -23,12 +23,13 @@ body {
   .syllabus-container{
     display: flex;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
     background-color: var(--peach);
     flex-wrap: wrap;
     padding-left: 20px;
     border-radius: 5px;
     margin: 5px;
+    height: 100%;
   }
 
   .syllabus-tile{

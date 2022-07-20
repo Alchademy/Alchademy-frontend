@@ -1,12 +1,16 @@
-import userEvent from '@testing-library/user-event';
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { getUser } from '../services/fetch-users';
+import { getUser, logout } from '../services/fetch-users';
 import { useStateContext } from '../StateProvider';
 import './Nav.css';
 
 export default function Nav() {
   const { user, setUser } = useStateContext({});
+
+  async function handleLogout() {
+    await logout();
+    window.location.replace('/');
+  }
 
   useEffect(() => {
     async function getCurrentUser(){
@@ -19,25 +23,30 @@ export default function Nav() {
 
   return (
     <div className='navBar'>
-      <span className=''>
+      <span className='left'>
         <p>Welcome {user.username}</p>
+        <p>Role: {user.role}</p>
       </span>
-      <ul>
-        <li>
-          <Link to="/dashboard">Home</Link>
-        </li>
-        <li>
-          <Link to="/about">About</Link>
-        </li>
-        <li>
-          <Link to="/account">Account</Link>
-        </li>
-        <li>
-          <Link to="/assignments">Assignments</Link>
-        </li>
-        <input className='navSearchBar'/>
-      </ul>
+      <div className='right'>
+        <ul>
+          <li>
+            <Link to="/dashboard" className='link'>Home</Link>
+          </li>
+          <li>
+            <Link to="/about" className='link'>About</Link>
+          </li>
+          <li>
+            <Link to="/account" className='link'>Account</Link>
+          </li>
+          <li>
+            <Link to="/assignments" className='link'>Assignments</Link>
+          </li>
+          <input className='navSearchBar'/>
+          <button onClick={handleLogout}>Logout</button>
+        </ul>
       
+      </div>
     </div>
+    
   );
 }
