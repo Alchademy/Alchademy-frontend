@@ -20,27 +20,35 @@ export default function Dashboard() {
   }, [user.id]);
 
   return (
-    <div className='syllabus-container' >
-      {syllabus.map((syllabi, i) => (
-        <Link key={i + syllabi.id} to={`/assignments/syllabus/${syllabi.id}`} className='syllabus-tile'>
-          <div>
-            <div className='syllabus-image'>
-              <img src={'./Alchademy.png'} />
-            </div>
-            <div className="syllabus-lower">
-              <div className='syllabus-description'>
-                <p>{syllabi.title}</p>
-                {/* have to get name of creator from sql backend */}
-                <p>created by:{syllabi.created_by}</p>
+    <div className="syllabus-container">
+      {syllabus.length > 0 &&
+        syllabus.map((syllabi, i) => (
+          <Link
+            key={i + syllabi.id}
+            to={`/assignments/syllabus/${syllabi.id}`}
+            className="syllabus-tile"
+          >
+            <div>
+              <div className="syllabus-image">
+                <img src={'./Alchademy.png'} />
               </div>
-              <span className='completeOrActive'>
-                {syllabi.status_id === 1 ? <p className='active'>Active</p>
-                  : <p className='complete'>Complete</p>}
-              </span>
+              <div className="syllabus-lower">
+                <div className="syllabus-description">
+                  <p>{syllabi.title}</p>
+                  {/* have to get name of creator from sql backend */}
+                  <p>created by:{syllabi.created_by}</p>
+                </div>
+                <span className="completeOrActive">
+                  {syllabi.status_id === 1 ? (
+                    <p className="active">Active</p>
+                  ) : (
+                    <p className="complete">Complete</p>
+                  )}
+                </span>
+              </div>
             </div>
-          </div>
-        </Link>
-      ))}
+          </Link>
+        ))}
     </div>
   );
 }

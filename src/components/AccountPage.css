@@ -1,8 +1,45 @@
+body {
+  --pink: #FAF0EA;
+  --pink-dark: #D4C9bA;
+  --pink-light: #DFD3C6;
+  --peach: #E89062;
+  --peach-dark: #72442A;
+  --peach-extra-dark: #533321;
+  --peach-light: #e89f78;
+  --blue: #A2D7D2;
+  --blue-medium: #65A7AB;
+  --blue-dark: #1F4E5C;
+  --gold: #DDA438;
+  --gold-dark: #9F7724;
+  --black: #221F1F;
+  --black-65: #6F6866;
+  --black-40: #A7A5A5;
+  --black-20: #D3D2D2;
+  --white: #FFFCFA;
+  --white-transparent-30: #fffcfa4d;
+  --link-color: #0369A3;
+  background-color: var(--black);
+}
+
 .account-page {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  background-color: var(--peach);
+  border-radius: 5px;
+  margin: 5px;
+  height: calc(100vh - 100px);
+  min-width: 746px;
+}
+
+.account-page-content {
+  background-color: var(--pink-light);
+  padding: 20px 40px;
+  border-radius: 10px;
+  margin: 20px;
+  min-width: 620px;
+  box-shadow: 6px 9px 18px -3px rgb(0 0 0 / 39%);
+  border: 3px black inset;
 }
 
 .avatar-and-username {
@@ -18,7 +55,7 @@
 }
 
 .avatar {
-  width: 25%;
+  min-width: 150px;
   text-align: center;
 }
 
@@ -37,4 +74,8 @@
 
 .account-page-assignment div{
   padding: 0px 5px;
+}
+
+.assignment-row a {
+  color: var(--link-color)
 }
