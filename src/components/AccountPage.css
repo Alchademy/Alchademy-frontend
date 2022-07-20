@@ -23,15 +23,21 @@ body {
 .account-page {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   background-color: var(--peach);
+  border-radius: 5px;
+  margin: 5px;
+  height: calc(100vh - 100px);
+  min-width: 740px;
 }
 
 .account-page-content {
-  background-color: var(--white);
-  padding: 10px;
+  background-color: var(--pink-dark);
+  padding: 20px 40px;
   border-radius: 10px;
+  margin: 20px;
+  min-width: 620px;
+  box-shadow: 6px 9px 18px -3px rgb(0 0 0 / 39%);
 }
 
 .avatar-and-username {
@@ -47,7 +53,7 @@ body {
 }
 
 .avatar {
-  width: 25%;
+  min-width: 150px;
   text-align: center;
 }
 

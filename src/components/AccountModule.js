@@ -30,34 +30,109 @@ export default function AccountModule({ syllabus }) {
       }
     }
     getAssignmentsAndSubmissions();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  console.log('assignments', assignments);
 
   return (
     <div className="account-page-module">
       {assignments.length > 0 && (
         <>
-          <h3>{syllabus.title}</h3>
-          <Table>
+          <Table
+            sx={{
+              marginBottom: '10px',
+            }}
+          >
             <TableHead>
               <TableRow>
-                <TableCell>Assignment</TableCell>
-                <TableCell>Due</TableCell>
-                <TableCell>Status</TableCell>
-                <TableCell>Score</TableCell>
-                <TableCell>Out of</TableCell>
+                <TableCell
+                  sx={{
+                    fontWeight: 'bold',
+                    padding: '16px 16px 5px',
+                    borderColor: 'rgba(0, 0, 0, 0.87)',
+                  }}
+                >
+                  Assignment
+                </TableCell>
+                <TableCell
+                  sx={{
+                    fontWeight: 'bold',
+                    padding: '16px 16px 5px',
+                    borderColor: 'rgba(0, 0, 0, 0.87)',
+                  }}
+                >
+                  Due
+                </TableCell>
+                <TableCell
+                  sx={{
+                    fontWeight: 'bold',
+                    padding: '16px 16px 5px',
+                    borderColor: 'rgba(0, 0, 0, 0.87)',
+                  }}
+                >
+                  Status
+                </TableCell>
+                <TableCell
+                  sx={{
+                    fontWeight: 'bold',
+                    padding: '16px 16px 5px',
+                    borderColor: 'rgba(0, 0, 0, 0.87)',
+                  }}
+                >
+                  Score
+                </TableCell>
+                <TableCell
+                  sx={{
+                    fontWeight: 'bold',
+                    padding: '16px 16px 5px',
+                    borderColor: 'rgba(0, 0, 0, 0.87)',
+                  }}
+                >
+                  Out of
+                </TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {assignments.length > 0 &&
                 assignments.map((assign) => (
                   <TableRow key={assign.title + assign.syllabus_id} className="assignment-row">
-                    <TableCell>{assign.title}</TableCell>
-                    <TableCell>{assign.due_date}</TableCell>
-                    <TableCell>{assign.created_on > assign.due_date && 'Late'}</TableCell>
-                    <TableCell>{assign.grade}</TableCell>
-                    <TableCell>{assign.total_points}</TableCell>
+                    <TableCell
+                      sx={{
+                        borderColor: 'rgba(0, 0, 0, 0.35)',
+                      }}
+                    >
+                      {assign.title}
+                    </TableCell>
+                    <TableCell
+                      sx={{
+                        borderColor: 'rgba(0, 0, 0, 0.35)',
+                      }}
+                    >
+                      {assign.due_date}
+                    </TableCell>
+                    <TableCell
+                      sx={{
+                        textAlign: 'center',
+                        borderColor: 'rgba(0, 0, 0, 0.35)',
+                      }}
+                    >
+                      {assign.created_on > assign.due_date && 'Late'}
+                    </TableCell>
+                    <TableCell
+                      sx={{
+                        textAlign: 'center',
+                        borderColor: 'rgba(0, 0, 0, 0.35)',
+                      }}
+                    >
+                      {assign.grade ? assign.grade : '-'}
+                    </TableCell>
+                    <TableCell
+                      sx={{
+                        textAlign: 'center',
+                        borderColor: 'rgba(0, 0, 0, 0.35)',
+                      }}
+                    >
+                      {assign.total_points}
+                    </TableCell>
                   </TableRow>
                 ))}
             </TableBody>
