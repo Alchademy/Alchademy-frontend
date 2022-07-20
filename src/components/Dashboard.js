@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { getCohortByUserId } from '../services/fetch-cohorts';
-import { Link, useHistory } from 'react-router-dom';
-import { getSyllabusByUserID } from '../services/fetch-syllabus';
+import { Link } from 'react-router-dom';
 import { useStateContext } from '../StateProvider';
 import './Dashboard.css';
 
 export default function Dashboard() {
-  const { user, setUser, getSyllabus, syllabus } = useStateContext();
-  const [cohort, setCohort] = useState([]);
-  const history = useHistory();
+  const { user, getSyllabus, syllabus } = useStateContext();
+  const [setCohort] = useState([]);
 
   useEffect(() => {
     async function getCohort() {
@@ -17,7 +15,7 @@ export default function Dashboard() {
     }
     getSyllabus();
     getCohort();
-    history.goBack();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user.id]);
 
   return (
