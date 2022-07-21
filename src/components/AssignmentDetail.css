@@ -87,3 +87,10 @@
   justify-content: center;
   align-items: center;
 }
+
+.assignment-tile {
+  text-decoration: none;
+  min-height: 200px;
+  width: 275px;
+  margin: 20px;
+}
