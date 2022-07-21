@@ -18,6 +18,7 @@ export default function AssignmentDetail() {
   const { user } = useStateContext();
   const [activeAssignment, setActiveAssignment] = useState({});
   const [submissionText, setSubmissionText] = useState({});
+  const [repoLink, setRepoLink] = useState('');
   const [submissions, setSubmissions] = useState(null);
 
   async function getActiveAssignment() {
@@ -38,6 +39,10 @@ export default function AssignmentDetail() {
 
   const handleSave = (data) => {
     setSubmissionText(data);
+  };
+
+  const handleRepoChange = (e) => {
+    setRepoLink(e.target.value);
   };
 
   const handleChange = (event) => {
@@ -68,7 +73,7 @@ export default function AssignmentDetail() {
 
   async function createSubmission(e) {
     e.preventDefault();
-    await insertSubmission(submissionText, id, user.id);
+    await insertSubmission(submissionText, id, user.id, repoLink);
     window.location.reload(true);
   }
 
@@ -96,9 +101,10 @@ export default function AssignmentDetail() {
         <div className="app-container">
           <h2>Submit Assignment</h2>
           <div className='flex-column center-items'>
+            <TextField onChange={handleRepoChange} fullWidth sx={{ marginTop: '20px' }} id="repo_link" label="Repo" variant="standard" helperText="Add Github Link for your project"/>
             <ThemeProvider theme={editorTheme}>
               <MUIRichTextEditor
-                label="Type something here..."
+                label="Leave comments about project..."
                 inlineToolbar={true}
                 onChange={handleChange}
                 onSave={handleSave}
@@ -114,10 +120,10 @@ export default function AssignmentDetail() {
               <TableHead>
                 <TableRow>
                   <TableCell>Submission</TableCell>
-                  <TableCell align="right">Submitted On</TableCell>
-                  <TableCell align="right">Status</TableCell>
-                  <TableCell align="right">Repo</TableCell>
-                  <TableCell align="right">Grade</TableCell>
+                  <TableCell align="center">Submitted On</TableCell>
+                  <TableCell align="center">Status</TableCell>
+                  <TableCell align="center">Repo</TableCell>
+                  <TableCell align="center">Grade</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>

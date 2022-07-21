@@ -22,13 +22,14 @@ export async function getAllAssignmentSubmissionsByUser(assignment_id) {
   return data;
 }
 
-export async function insertSubmission(text, assignment_id, user_id) {
+export async function insertSubmission(text, assignment_id, user_id, repo_link) {
   const newSubmission = {
     text: text,
     status_id: 2,
     assignment_id: assignment_id,
     user_id: user_id,
     grade: null,
+    repo_link: repo_link
   };
   const rawResponse = await fetch(`${process.env.REACT_APP_API_URL}/submissions`, {
     method: 'POST',
