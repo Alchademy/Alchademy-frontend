@@ -1,3 +1,5 @@
+import { CheckCircle } from '@mui/icons-material';
+import { Chip } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 export default function Assignment({ assgn }) {
@@ -8,11 +10,12 @@ export default function Assignment({ assgn }) {
         <p>
           {assgn.due_date} | {assgn.total_points}{' '}
         </p>
-        <p>
-          {' '}
-          {assgn.status_id === 2 && <span>Active</span>}
-          {assgn.status_id === 4 && <span>Completed</span>}{' '}
-        </p>
+        <Chip
+          variant="outlined"
+          color="success"
+          label={assgn.status_id === 4 ? 'Completed' : 'Active'}
+          icon={<CheckCircle />}
+        />
       </div>
     </Link>
   );

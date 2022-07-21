@@ -50,6 +50,9 @@ body {
 
 .assignment-tile {
   text-decoration: none;
+  height: 200px;
+  width: 210px;
+  margin: 20px;
 }
 
 .assignment-tile:hover {
