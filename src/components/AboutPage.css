@@ -1,0 +1,56 @@
+body {
+  --pink: #faf0ea;
+  --pink-dark: #d4c9ba;
+  --pink-light: #dfd3c6;
+  --peach: #e89062;
+  --peach-dark: #72442a;
+  --peach-extra-dark: #533321;
+  --peach-light: #e89f78;
+  --blue: #a2d7d2;
+  --blue-medium: #65a7ab;
+  --blue-dark: #1f4e5c;
+  --gold: #dda438;
+  --gold-dark: #9f7724;
+  --black: #221f1f;
+  --black-65: #6f6866;
+  --black-40: #a7a5a5;
+  --black-20: #d3d2d2;
+  --white: #fffcfa;
+  --white-transparent-30: #fffcfa4d;
+  --link-color: #0369a3;
+  background-color: var(--black);
+}
+
+.avatar img {
+  height: 100px;
+  border-radius: 50%;
+}
+
+.avatar {
+  min-width: 150px;
+  text-align: center;
+  padding: 20px;
+}
+
+.creator-info {
+  height: 400=px;
+  display: flex;
+  background-color: var(--blue-medium);
+  flex-wrap: wrap;
+  padding-left: 20px;
+  margin: 30px;
+  border: 3px black solid;
+  -webkit-box-shadow: 6px 9px 18px -3px rgba(0, 0, 0, 0.39);
+  box-shadow: 6px 9px 18px -3px rgba(0, 0, 0, 0.39);
+  border-radius: 10px;
+  width: 225px;
+  flex-direction: column;
+  color: black;
+}
+
+.about-page {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
