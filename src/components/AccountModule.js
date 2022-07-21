@@ -7,17 +7,19 @@ export default function AccountModule({ syllabus }) {
   const [assignments, setAssignments] = useState([]);
 
   function formatDate(due_date) {
-    const timestamp = new Date(due_date);
-    let date = new Intl.DateTimeFormat('en-US', {
-      month: 'short',
-      day: 'numeric',
-      hour: 'numeric',
-      timeZone: 'America/Los_Angeles',
-    }).format(timestamp);
-    date = date.replace(/, /g, ' by ');
-    date = date.replace(/ AM/g, 'am');
-    date = date.replace(/ PM/g, 'pm');
-    return date;
+    if (due_date) {
+      const timestamp = new Date(due_date);
+      let date = new Intl.DateTimeFormat('en-US', {
+        month: 'short',
+        day: 'numeric',
+        hour: 'numeric',
+        timeZone: 'America/Los_Angeles',
+      }).format(timestamp);
+      date = date.replace(/, /g, ' by ');
+      date = date.replace(/ AM/g, 'am');
+      date = date.replace(/ PM/g, 'pm');
+      return date;
+    }
   }
 
   useEffect(() => {
@@ -95,7 +97,7 @@ export default function AccountModule({ syllabus }) {
             <TableBody>
               {assignments.length > 0 &&
                 assignments.map((assign) => (
-                  <TableRow key={assign.title + assign.syllabus_id} className="assignment-row">
+                  <TableRow key={assign.title + assign.id} className="assignment-row">
                     <TableCell
                       sx={{
                         borderColor: 'rgba(0, 0, 0, 0.35)',
