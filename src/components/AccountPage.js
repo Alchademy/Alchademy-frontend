@@ -5,14 +5,17 @@ import AccountModule from './AccountModule';
 import './AccountPage.css';
 
 export default function AccountPage() {
-  const { user, syllabus, getSyllabusAssignments } = useStateContext();
+  const { user, syllabus, getSyllabus } = useStateContext();
   const [selectedModule, setSelectedModule] = useState({});
 
   useEffect(() => {
-    if (syllabus.length > 0) {
+    if (!syllabus.length) {
+      getSyllabus();
+    }
+    if (syllabus.length) {
       setSelectedModule(syllabus[0]);
     }
-    getSyllabusAssignments();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [syllabus]);
 
   return (
@@ -26,29 +29,30 @@ export default function AccountPage() {
           )}
           <div className="username">Grades for {user.username}</div>
         </div>
-        <FormControl
-          className="module-select"
-          sx={{
-            margin: '20px 0px 4px',
-            borderColor: 'black',
-          }}
-        >
-          <InputLabel>Course</InputLabel>
-          <Select
-            defaultValue={0}
-            label="Course"
-            onChange={(e) => setSelectedModule(syllabus[e.target.value])}
-          >
-            {syllabus.length > 0 &&
-              syllabus.map((syl, i) => (
-                <MenuItem key={syl.id} value={i}>
-                  {syl.title}
-                </MenuItem>
-              ))}
-          </Select>
-        </FormControl>
         {syllabus.length > 0 && (
-          <AccountModule key={selectedModule.title} syllabus={selectedModule} />
+          <>
+            <FormControl
+              className="module-select"
+              sx={{
+                margin: '20px 0px 4px',
+                borderColor: 'black',
+              }}
+            >
+              <InputLabel>Course</InputLabel>
+              <Select
+                defaultValue={0}
+                label="Course"
+                onChange={(e) => setSelectedModule(syllabus[e.target.value])}
+              >
+                {syllabus.map((syl, i) => (
+                  <MenuItem key={syl.id} value={i}>
+                    {syl.title}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+            <AccountModule key={selectedModule.title} syllabus={selectedModule} />
+          </>
         )}
       </div>
     </div>
