@@ -9,6 +9,8 @@ import AssignmentDetail from './components/AssignmentDetail';
 import { getUser } from './services/fetch-users';
 import { useStateContext } from './StateProvider';
 import Nav from './components/Nav';
+import GradingList from './components/GradingList';
+import GradingDetail from './components/GradingDetail';
 
 export default function App() {
   const { user, setUser } = useStateContext();
@@ -54,7 +56,10 @@ export default function App() {
               {user.id ? <AssignmentDetail /> : <Redirect to="/" />}
             </Route>
             <Route exact path="/grading">
-              {user.role > 1 ? <AssignmentDetail /> : <Redirect to="/" />}
+              {user.role > 1 ? <GradingList /> : <Redirect to="/" />}
+            </Route>
+            <Route exact path="/grading/:id">
+              {user.role > 1 ? <GradingDetail /> : <Redirect to="/" />}
             </Route>
           </Switch>
         </div>)}
