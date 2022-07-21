@@ -8,8 +8,10 @@ export default function Assignment({ assgn }) {
     <Link className="assignment-tile" to={`/assignments/${assgn.id}`}>
       <div className="assignment-list-div">
         <h3>{assgn.title}</h3>
-        <p>Due Date: {convertedTime}</p>
-        <p>Total Points: {assgn.total_points}</p>
+        <p>
+          Due Date: {convertedTime} <br></br>
+          Total Points: {assgn.total_points}
+        </p>
         <Chip
           style={{ margin: '10px' }}
           variant="outlined"
