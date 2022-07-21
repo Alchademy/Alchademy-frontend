@@ -1,6 +1,7 @@
 import { createTheme, TableCell, TableRow, ThemeProvider } from '@mui/material';
 import MUIRichTextEditor from 'mui-rte';
 import React from 'react';
+import GitHubIcon from '@mui/icons-material/GitHub';
 
 export default function SubmissionRow({ row, total_points }) {
   const formattedDate = new Date(row.created_on).toLocaleDateString('en-us');
@@ -36,6 +37,9 @@ export default function SubmissionRow({ row, total_points }) {
       </TableCell>
       <TableCell align="right">{formattedDate}</TableCell>
       <TableCell align="right">{row.status_id}</TableCell>
+      <TableCell align="right">
+        {row.repo_link ? <a href={row.repo_link} target="_blank" rel="noreferrer"><GitHubIcon /></a> : null}
+      </TableCell>
       <TableCell align="right">{`${row.grade ? row.grade : 0} / ${total_points}`}</TableCell>
     </TableRow>
   );

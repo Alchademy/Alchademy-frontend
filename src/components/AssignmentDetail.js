@@ -116,6 +116,7 @@ export default function AssignmentDetail() {
                   <TableCell>Submission</TableCell>
                   <TableCell align="right">Submitted On</TableCell>
                   <TableCell align="right">Status</TableCell>
+                  <TableCell align="right">Repo</TableCell>
                   <TableCell align="right">Grade</TableCell>
                 </TableRow>
               </TableHead>
