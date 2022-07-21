@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -18,6 +18,7 @@ import Nav from './components/Nav';
 
 export default function App() {
   const { user, setUser } = useStateContext();
+  const [checkedForUser, setCheckedForUser] = useState(false);
 
   // async function handleLogout() {
   //   await logout();
@@ -28,39 +29,44 @@ export default function App() {
     async function load() {
       const user = await getUser();
       setUser(user);
+      if (!checkedForUser) {
+        setCheckedForUser(true);
+      }
     }
     load();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  console.log(user);
+  console.log(user, checkedForUser);
   return (
     <Router>
-      <div className="App">
-        {/* <button onClick={handleLogout}>Logout</button> */}
-        {user.id ? <Nav /> : ''}
+      {checkedForUser && (
+        <div className="App">
+          {/* <button onClick={handleLogout}>Logout</button> */}
+          {user.id ? <Nav /> : ''}
 
-        <Switch>
-          <Route exact path="/">
-            {user.id ? <Redirect to="/dashboard" /> : <AuthPage />}
-          </Route>
-          <Route exact path="/about">
-            {user.id ? <AboutPage /> : <Redirect to="/" />}
-          </Route>
-          <Route exact path="/account">
-            {user.id ? <AccountPage /> : <Redirect to="/" />}
-          </Route>
-          <Route exact path="/dashboard">
-            {user.id ? <Dashboard /> : <Redirect to="/" />}
-          </Route>
-          <Route exact path="/assignments/syllabus/:id">
-            {user.id ? <AssignmentList /> : <Redirect to="/" />}
-          </Route>
-          <Route exact path="/assignments/:id">
-            {user.id ? <AssignmentDetail /> : <Redirect to="/" />}
-          </Route>
-        </Switch>
-      </div>
+          <Switch>
+            <Route exact path="/">
+              {user.id ? <Redirect to="/dashboard" /> : <AuthPage />}
+            </Route>
+            <Route exact path="/about">
+              {user.id ? <AboutPage /> : <Redirect to="/" />}
+            </Route>
+            <Route exact path="/account">
+              {user.id ? <AccountPage /> : <Redirect to="/" />}
+            </Route>
+            <Route exact path="/dashboard">
+              {user.id ? <Dashboard /> : <Redirect to="/" />}
+            </Route>
+            <Route exact path="/assignments/syllabus/:id">
+              {user.id ? <AssignmentList /> : <Redirect to="/" />}
+            </Route>
+            <Route exact path="/assignments/:id">
+              {user.id ? <AssignmentDetail /> : <Redirect to="/" />}
+            </Route>
+          </Switch>
+        </div>
+      )}
     </Router>
   );
 }
