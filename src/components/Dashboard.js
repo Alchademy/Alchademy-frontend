@@ -3,6 +3,8 @@ import { getCohortByUserId } from '../services/fetch-cohorts';
 import { Link } from 'react-router-dom';
 import { useStateContext } from '../StateProvider';
 import './Dashboard.css';
+import StatusIcon from './AssignmentComponents/StatusIcon';
+import StatusSwitch from './AssignmentComponents/StatusSwitch';
 
 export default function Dashboard() {
   const { user, getSyllabus, syllabus } = useStateContext();
@@ -39,11 +41,7 @@ export default function Dashboard() {
                   <p>created by:{syllabi.created_by_name}</p>
                 </div>
                 <span className="completeOrActive">
-                  {syllabi.status_id === 1 ? (
-                    <p className="active">Active</p>
-                  ) : (
-                    <p className="complete">Complete</p>
-                  )}
+                  <StatusSwitch status_id={syllabi.status_id} className='status'/>
                 </span>
               </div>
             </div>
