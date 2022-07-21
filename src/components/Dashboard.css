@@ -46,6 +46,7 @@ body {
     text-decoration: none;
     color: black;
     font-weight: 500;
+    padding-bottom: 5px;
   }
   
   .syllabus-tile:hover{
