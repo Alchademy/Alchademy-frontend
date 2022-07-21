@@ -2,30 +2,33 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getUser, logout } from '../services/fetch-users';
 import { useStateContext } from '../StateProvider';
+import CustomButton from './CustomButton';
 import './Nav.css';
 
 export default function Nav() {
-  const { user, setUser } = useStateContext({});
+  const { user } = useStateContext({});
 
   async function handleLogout() {
     await logout();
     window.location.replace('/');
   }
 
-  useEffect(() => {
-    async function getCurrentUser() {
-      const user = await getUser();
-      setUser(user);
-    }
-    getCurrentUser();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  console.log('user', user);
+
+  // useEffect(() => {
+  //   async function getCurrentUser() {
+  //     const user = await getUser();
+  //     setUser(user);
+  //   }
+  //   getCurrentUser();
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
 
   return (
     <div className="navBar">
       <span className="left">
         <p>Welcome {user.username}</p>
-        <p>Role: {user.role}</p>
+        <p>Role: {user.role_name}</p>
       </span>
       <div className="right">
         <ul>
@@ -50,9 +53,11 @@ export default function Nav() {
             </li>
             : null
           }
-          <input className='navSearchBar'/>
-          <button onClick={handleLogout}>Logout</button>
+          
         </ul>
+        <span className='customButton'>
+          <CustomButton onClick={handleLogout} text='Logout' width='100px' />
+        </span>
       </div>
     </div>
   );

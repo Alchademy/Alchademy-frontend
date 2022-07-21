@@ -44,9 +44,9 @@ body{
 .right{
     height: 90px;
     display: flex;
-    justify-content: flex-end;
     align-items: flex-end;
     padding-right: 20px;
+    margin-right: 15px;
 }
 .right ul{
     display: flex;
@@ -69,13 +69,9 @@ body{
     color: var(--gold)
 }
 
-.right button{
-    color: black;
-    background: var(--gold);
-    border-radius: 10px;
-    width: 80px;
-    margin-left: 20px;
-}
+.customButton{
+    height: 75px;
+} 
 
 .right button:hover{
     background-color: var(--blue);
