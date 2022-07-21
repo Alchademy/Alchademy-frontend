@@ -1,19 +1,7 @@
-/* eslint-disable indent */
-import {
-  Button,
-  Chip,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  TextField,
-} from '@mui/material';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getAssignmentById } from '../services/fetch-assignments';
-import { CheckCircle } from '@mui/icons-material';
 import MUIRichTextEditor from 'mui-rte';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import './AssignmentDetail.css';
@@ -22,6 +10,8 @@ import { useStateContext } from '../StateProvider';
 import SubmissionRow from './AssignmentComponents/SubmissionRow';
 import { convertToRaw } from 'draft-js';
 import LinkButton from './AssignmentComponents/LinkButton';
+import CustomButton from './CustomButton';
+import StatusSwitch from './AssignmentComponents/StatusSwitch';
 
 export default function AssignmentDetail() {
   const { id } = useParams();
@@ -79,20 +69,15 @@ export default function AssignmentDetail() {
   async function createSubmission(e) {
     e.preventDefault();
     await insertSubmission(submissionText, id, user.id);
-    window.location.reload(false);
+    window.location.reload(true);
   }
 
-  return (
-    <div className="app-page flex-row">
-      <div className="column1">
-        <div className="space-between app-container">
-          <h1 className="assignmentTitle">{activeAssignment.title}</h1>
-          <Chip
-            label={activeAssignment.status}
-            variant="outlined"
-            color="success"
-            icon={<CheckCircle />}
-          />
+  return ( 
+    <div className='app-page flex-row'>
+      <div className='column1'>
+        <div className='space-between app-container flex-row'>
+          <h1 className='assignmentTitle'>{activeAssignment.title}</h1>
+          <StatusSwitch status_id={activeAssignment.status_id} />
         </div>
         <div className="app-container">
           <div className="flex-row space-between">
@@ -110,15 +95,17 @@ export default function AssignmentDetail() {
         </div>
         <div className="app-container">
           <h2>Submit Assignment</h2>
-          <ThemeProvider theme={editorTheme}>
-            <MUIRichTextEditor
-              label="Type something here..."
-              inlineToolbar={true}
-              onChange={handleChange}
-              onSave={handleSave}
-            />
-          </ThemeProvider>
-          <Button onClick={createSubmission}>Submit</Button>
+          <div className='flex-column center-items'>
+            <ThemeProvider theme={editorTheme}>
+              <MUIRichTextEditor
+                label="Type something here..."
+                inlineToolbar={true}
+                onChange={handleChange}
+                onSave={handleSave}
+              />
+            </ThemeProvider>
+            <CustomButton onClick={createSubmission} text={'Submit Assignment'} width={'98%'}/>
+          </div>
         </div>
         <div className="app-container">
           <h2>Past Submissions</h2>
@@ -135,53 +122,31 @@ export default function AssignmentDetail() {
               <TableBody>
                 {submissions
                   ? submissions.map((submission, i) => (
-                      <SubmissionRow
-                        key={i}
-                        data={submissionText}
-                        row={submission}
-                        total_points={activeAssignment.total_points}
-                      />
-                    ))
+                    <SubmissionRow
+                      key={i}
+                      data={submissionText}
+                      row={submission}
+                      total_points={activeAssignment.total_points}
+                    />
+                  ))
                   : null}
               </TableBody>
             </Table>
           </TableContainer>
         </div>
       </div>
-      <div className="column2">
-        <div className="space-around app-container flex-row">
-          <LinkButton text={'Template'} />
-          <LinkButton text={'Example'} />
+      <div className='column2'>
+        <div className='space-around app-container flex-row'>
+          <LinkButton text={'Template'} link={activeAssignment.template_link}/>
+          <LinkButton text={'Example'} link={activeAssignment.example_link}/>
         </div>
         <form className="ticketForm app-container">
           <h3>Submit Ticket for Help</h3>
-          <TextField
-            id="standard-basic"
-            label="Trouble With"
-            variant="standard"
-            helperText="I am having trouble with"
-          />
-          <TextField
-            id="standard-basic"
-            label="Tried"
-            variant="standard"
-            helperText="Solutions you have tried"
-          />
-          <TextField
-            id="standard-basic"
-            label="Issue"
-            variant="standard"
-            helperText="What you believe the issue might be"
-            multiline
-            rows={4}
-          />
-          <TextField
-            id="standard-basic"
-            label="Room"
-            variant="standard"
-            helperText="Which room you are in"
-          />
-          <Button>Submit Ticket</Button>
+          <TextField id="standard-basic" label="Trouble With" variant="standard" helperText="I am having trouble with"/>
+          <TextField id="standard-basic" label="Tried" variant="standard" helperText="Solutions you have tried"/>
+          <TextField id="standard-basic" label="Issue" variant="standard" helperText="What you believe the issue might be" multiline rows={4}/>
+          <TextField id="standard-basic" label="Room" variant="standard" helperText="Which room you are in"/>
+          <CustomButton text={'Submit Ticket'} width={'100%'}/>
         </form>
       </div>
     </div>

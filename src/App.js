@@ -53,9 +53,11 @@ export default function App() {
             <Route exact path="/assignments/:id">
               {user.id ? <AssignmentDetail /> : <Redirect to="/" />}
             </Route>
+            <Route exact path="/grading">
+              {user.role > 1 ? <AssignmentDetail /> : <Redirect to="/" />}
+            </Route>
           </Switch>
-        </div>
-      )}
+        </div>)}
     </Router>
   );
 }

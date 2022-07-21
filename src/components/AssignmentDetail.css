@@ -82,3 +82,8 @@
   display: flex;
   flex-direction: column;
 }
+
+.center-items {
+  justify-content: center;
+  align-items: center;
+}
