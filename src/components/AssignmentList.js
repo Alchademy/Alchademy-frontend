@@ -9,7 +9,6 @@ import { getSyllabusByID } from '../services/fetch-syllabus';
 export default function AssignmentList() {
   const { syllabus, assignment, setAssignment, setSyllabus } = useStateContext();
   const { id } = useParams();
-  console.log('assignment', assignment);
   useEffect(() => {
     async function getAssignments() {
       if (id) {
