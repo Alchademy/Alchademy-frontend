@@ -22,8 +22,8 @@ body {
 
   .syllabus-container{
     display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
+    /* justify-content: flex-start; */
+    /* align-items: flex-start; */
     background-color: var(--peach);
     flex-wrap: wrap;
     padding-left: 20px;

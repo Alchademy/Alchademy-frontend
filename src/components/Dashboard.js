@@ -4,24 +4,29 @@ import { Link } from 'react-router-dom';
 import { useStateContext } from '../StateProvider';
 import './Dashboard.css';
 import StatusSwitch from './AssignmentComponents/StatusSwitch';
+import Spinner from './Spinner';
 
 export default function Dashboard() {
-  const { user, getSyllabus, syllabus } = useStateContext();
+  const { user, getSyllabus, syllabus, spinner, setSpinner } = useStateContext();
   const [cohort, setCohort] = useState([]);
 
   useEffect(() => {
+    setSpinner(true);
     async function getCohort() {
       const cohortList = await getCohortByUserId(user.id);
       if (cohortList.length > 0) setCohort(cohortList);
     }
     getSyllabus();
     getCohort();
+    setSpinner(false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user.id]);
 
   return (
-    <div className="syllabus-container">
-      {syllabus.length > 0 &&
+    <div>
+      {spinner ? <Spinner /> :
+        <div className="syllabus-container">
+          {syllabus.length > 0 &&
         syllabus.map((syllabi, i) => (
           <Link
             key={i + syllabi.id}
@@ -45,6 +50,7 @@ export default function Dashboard() {
             </div>
           </Link>
         ))}
+        </div>}
     </div>
   );
 }

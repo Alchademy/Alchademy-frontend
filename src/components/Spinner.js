@@ -1,14 +1,15 @@
 import React from 'react';
 
+import './Spinner.css';
+
 export default function Spinner() {
   return (
-    <div className='loadScreen'>
-      <div className='bounceball'/>
-      <div className='flipper-container'>
-        <img src={process.env.PUBLIC_URL + '/flipper1.png'} className='flipper1'/>
-        <img src={process.env.PUBLIC_URL + '/flipper2.png'} className='flipper2'/>
+    <div className='spinner-container'>
+      <div className='beaker'>
+        <div className='line'></div>
+        <div className='line'></div>
+        <div className='line'></div>
       </div>
-      <h1>Alchademy</h1>
-    </div> 
+    </div>
   );
 }
