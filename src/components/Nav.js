@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getUser, logout } from '../services/fetch-users';
 import { useStateContext } from '../StateProvider';
+import CustomButton from './CustomButton';
 import './Nav.css';
 
 export default function Nav() {
@@ -52,9 +53,11 @@ export default function Nav() {
             </li>
             : null
           }
-          <input className='navSearchBar'/>
-          <button onClick={handleLogout}>Logout</button>
+          
         </ul>
+        <span className='customButton'>
+          <CustomButton onClick={handleLogout} text='Logout' width='100px' />
+        </span>
       </div>
     </div>
   );
