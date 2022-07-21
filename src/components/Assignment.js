@@ -1,6 +1,5 @@
-import { CheckCircle } from '@mui/icons-material';
-import { Chip } from '@mui/material';
 import { Link } from 'react-router-dom';
+import StatusSwitch from './AssignmentComponents/StatusSwitch';
 
 export default function Assignment({ assgn }) {
   const convertedTime = new Date(assgn.due_date).toLocaleDateString('en-us');
@@ -12,13 +11,9 @@ export default function Assignment({ assgn }) {
           Due Date: {convertedTime} <br></br>
           Total Points: {assgn.total_points}
         </p>
-        <Chip
-          style={{ margin: '10px' }}
-          variant="outlined"
-          color="success"
-          label={assgn.status_id === 4 ? 'Completed' : 'Active'}
-          icon={<CheckCircle />}
-        />
+        <p className="status">
+          <StatusSwitch status_id={assgn.status_id} />
+        </p>
       </div>
     </Link>
   );
