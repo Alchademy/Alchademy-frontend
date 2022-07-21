@@ -1,11 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect,
-  // useHistory,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import AboutPage from './components/AboutPage';
 import AccountPage from './components/AccountPage';
 import AssignmentList from './components/AssignmentList';
@@ -20,15 +14,12 @@ export default function App() {
   const { user, setUser } = useStateContext();
   const [checkedForUser, setCheckedForUser] = useState(false);
 
-  // async function handleLogout() {
-  //   await logout();
-  //   window.location.replace('/');
-  // }
-
   useEffect(() => {
     async function load() {
-      const user = await getUser();
-      setUser(user);
+      if (!user.id) {
+        const user = await getUser();
+        setUser(user);
+      }
       if (!checkedForUser) {
         setCheckedForUser(true);
       }
@@ -37,12 +28,10 @@ export default function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  console.log(user, checkedForUser);
   return (
     <Router>
       {checkedForUser && (
         <div className="App">
-          {/* <button onClick={handleLogout}>Logout</button> */}
           {user.id ? <Nav /> : ''}
 
           <Switch>
