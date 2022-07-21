@@ -14,7 +14,8 @@
     position: relative;
     position: absolute;
     top: 22%;
-    animation: fade 4s forwards ease-out;
+    animation: fade 10s forwards ease-out;
+    z-index: 1;
 }
 
 .element{
@@ -30,7 +31,7 @@
 }
 
 .element:hover{
-    transform: scale(1.1);
+    transform: scale(1.2);
     cursor: pointer;
     font-size: 30px;
 }
@@ -92,20 +93,24 @@
 }
 
 @keyframes fade {
-    60%{
-        transform: scale(1);
-        opacity: .5;
+    0%{
+        opacity: 1;
     }
+    85%{
+        opacity: .6;
+    }
+    90%{
+        opacity: .4;}
     100%{
-        transform: scale(.8);
-        opacity: .3;
+        opacity: .4;
+        filter: blur(10px);
     }
 }
 
 @keyframes fadeIn {
     0%{ opacity: 0;}
-    60%{opacity: .4;}
-    70%{opacity: .6 }
+    80%{opacity: .4;}
+    90%{opacity: .6 }
     100%{opacity: .96}
 }
 
@@ -116,7 +121,7 @@
 @media only screen and (max-width: 870px) {
     .logo{ font-size: 3rem}
     .periodic-table{
-        transform: scale(.2);
+        transform: scale(.5);
         height: 10%;
     }
 }
