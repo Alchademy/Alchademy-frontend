@@ -18,6 +18,7 @@ export default function Dashboard() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user.id]);
 
+  console.log('syllabus', syllabus);
   return (
     <div className="syllabus-container">
       {syllabus.length > 0 &&
@@ -35,7 +36,7 @@ export default function Dashboard() {
                 <div className="syllabus-description">
                   <p>{syllabi.title}</p>
                   {/* have to get name of creator from sql backend */}
-                  <p>created by:{syllabi.created_by}</p>
+                  <p>created by:{syllabi.created_by_name}</p>
                 </div>
                 <span className="completeOrActive">
                   {syllabi.status_id === 1 ? (
