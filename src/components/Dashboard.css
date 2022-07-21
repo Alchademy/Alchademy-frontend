@@ -29,7 +29,7 @@ body {
     padding-left: 20px;
     border-radius: 5px;
     margin: 5px;
-    height: 100%;
+    height: calc(100vh - 100px);
   }
 
   .syllabus-tile{
