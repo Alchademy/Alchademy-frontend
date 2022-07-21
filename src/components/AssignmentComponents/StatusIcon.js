@@ -1,21 +1,20 @@
+import { styled } from '@mui/material/styles';
+import { CheckCircle } from '@mui/icons-material';
+import { Chip } from '@mui/material';
 import React from 'react';
 
-export default function StatusIcon(status_id) {
+export default function StatusIcon({ text, color }) {
+  // const StatusChip = styled(Chip)(({ theme }) => ({
+  //   color: theme.palette.getContrastText({ color }),
+  //   backgroundColor: { color }
+  // }));
   return (
-    <div>
-      {
-        (() => {
-          switch (status_id) {
-            case 1:
-              return this.myComponentMethod();
-            case 2: 
-              return this.myComponentMethod();
-            case 3:
-              return <div>1</div>; 
-            default: return null;
-          }
-        })
-      }
-    </div>
+    <Chip label={text} 
+      variant="outlined" 
+      icon={<CheckCircle />}
+      sx={{
+        color: { color }
+      }}
+    />
   );
 }

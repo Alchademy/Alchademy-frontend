@@ -44,9 +44,12 @@ export default function Nav() {
               Account
             </Link>
           </li>
-          <li>
-            <Link to="/assignments/1" className='link'>Assignment</Link>
-          </li>
+          {user.role > 1 ?
+            <li>
+              <Link to="/grading" className='link'>Grading</Link>
+            </li>
+            : null
+          }
           <input className='navSearchBar'/>
           <button onClick={handleLogout}>Logout</button>
         </ul>

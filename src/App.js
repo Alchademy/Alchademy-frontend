@@ -33,7 +33,6 @@ export default function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  console.log(user);
   return (
     <Router>
       <div className="App">
@@ -58,6 +57,9 @@ export default function App() {
           </Route>
           <Route exact path="/assignments/:id">
             {user.id ? <AssignmentDetail /> : <Redirect to="/" />}
+          </Route>
+          <Route exact path="/grading">
+            {user.role > 1 ? <AssignmentDetail /> : <Redirect to="/" />}
           </Route>
         </Switch>
       </div>

@@ -1,8 +1,7 @@
-import { Button, Chip, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField } from '@mui/material';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getAssignmentById } from '../services/fetch-assignments';
-import { CheckCircle } from '@mui/icons-material';
 import MUIRichTextEditor from 'mui-rte';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import './AssignmentDetail.css';
@@ -12,6 +11,7 @@ import SubmissionRow from './AssignmentComponents/SubmissionRow';
 import { convertToRaw } from 'draft-js';
 import LinkButton from './AssignmentComponents/LinkButton';
 import CustomButton from './CustomButton';
+import StatusSwitch from './AssignmentComponents/StatusSwitch';
 
 export default function AssignmentDetail() {
   const { id } = useParams();
@@ -69,7 +69,7 @@ export default function AssignmentDetail() {
   async function createSubmission(e) {
     e.preventDefault();
     await insertSubmission(submissionText, id, user.id);
-    window.location.reload(false);
+    window.location.reload(true);
   }
 
   return ( 
@@ -77,7 +77,7 @@ export default function AssignmentDetail() {
       <div className='column1'>
         <div className='space-between app-container flex-row'>
           <h1 className='assignmentTitle'>{activeAssignment.title}</h1>
-          <Chip label={activeAssignment.status} variant="outlined" color="success" icon={<CheckCircle />} />
+          <StatusSwitch status_id={activeAssignment.status_id} />
         </div>
         <div className='app-container'>
           <div className='flex-row space-between'>
@@ -130,8 +130,8 @@ export default function AssignmentDetail() {
       </div>
       <div className='column2'>
         <div className='space-around app-container flex-row'>
-          <LinkButton text={'Template'}/>
-          <LinkButton text={'Example'}/>
+          <LinkButton text={'Template'} link={activeAssignment.template_link}/>
+          <LinkButton text={'Example'} link={activeAssignment.example_link}/>
         </div>
         <form className='ticketForm app-container'>
           <h3>Submit Ticket for Help</h3>
