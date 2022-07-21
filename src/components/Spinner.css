@@ -1,0 +1,87 @@
+body{--pink: #FAF0EA;
+    --pink-dark: #D4C9bA;
+    --pink-light: #DFD3C6;
+    --peach: #E89062;
+    --peach-dark: #72442A;
+    --peach-extra-dark: #533321;
+    --peach-light: #e89f78;
+    --blue: #A2D7D2;
+    --blue-medium: #65A7AB;
+    --blue-dark: #1F4E5C;
+    --gold: #DDA438;
+    --gold-dark: #9F7724;
+    --black: #221F1F;
+    --black-65: #6F6866;
+    --black-40: #A7A5A5;
+    --black-20: #D3D2D2;
+    --white: #FFFCFA;
+    --white-transparent-30: #fffcfa4d;
+    
+}
+
+.spinner-container{
+    height: 100vh;
+    width: 100vw;
+    background: rgba(30, 30, 30, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.beaker{
+    border: solid black 5px;
+    height: 100px;
+    width: 30px;
+    border-radius: 60px;
+    border-top: 0px solid transparent;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background: linear-gradient(360deg, #65A7AB , #1F4E5C, rgba(0,0,0,0) 40% );
+    animation: fill 1s ease-in-out infinite;
+}
+
+@keyframes fill {
+    0%{
+        background: linear-gradient(360deg, #65A7AB, #1F4E5C, rgba(0,0,0,0) 20% )
+    }
+    10% {
+        background: linear-gradient(360deg, #65A7AB, #1F4E5C, rgba(0,0,0,0) 40% )
+     }
+     20%{
+        background: linear-gradient(360deg, #65A7AB, #1F4E5C, rgba(0,0,0,0) 60% )
+     }
+     30%{
+        background: linear-gradient(360deg, #65A7AB, #1F4E5C, rgba(0,0,0,0) 80% )
+     }
+     40%{
+        background: linear-gradient(360deg, #65A7AB, #1F4E5C, rgba(0,0,0,0) 100% )
+     }
+     50%{
+        background: linear-gradient(360deg, #65A7AB, #1F4E5C, rgba(0,0,0,0) 80% )
+     }
+     60%{
+        background: linear-gradient(360deg, #65A7AB, #1F4E5C, rgba(0,0,0,0) 60% )
+     }
+     70%{
+        background: linear-gradient(360deg, #65A7AB, #1F4E5C, rgba(0,0,0,0) 40% )
+     }
+     80%{
+        background: linear-gradient(360deg, #65A7AB, #1F4E5C, rgba(0,0,0,0) 20% )
+     }
+     90%{
+        background: linear-gradient(360deg, #65A7AB, #1F4E5C, rgba(0,0,0,0) 0% )
+     }
+     100%{
+        background: linear-gradient(360deg, #65A7AB, #1F4E5C, rgba(0,0,0,0) 20% )
+     }
+    
+}
+
+.line{
+    border: solid black 3px;
+    width: 1px;
+    position: relative;
+    top: calc(1px);
+    border-end-end-radius:  1px;
+    margin-top: 20px;
+}

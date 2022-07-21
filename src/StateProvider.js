@@ -9,6 +9,7 @@ export function StateProvider({ children }) {
   const [syllabus, setSyllabus] = useState([]);
   const [assignment, setAssignment] = useState([]);
   const [submissionText, setSubmissionText] = useState({});
+  const [spinner, setSpinner] = useState(false);
   const state = {
     user,
     setUser,
@@ -19,7 +20,9 @@ export function StateProvider({ children }) {
     setAssignment,
     getSyllabusAssignments,
     submissionText,
-    setSubmissionText
+    setSubmissionText,
+    spinner,
+    setSpinner
   };
 
   async function getSyllabus() {
