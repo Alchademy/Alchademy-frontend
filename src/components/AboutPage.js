@@ -15,7 +15,9 @@ export default function AboutPage() {
         <p> linkedIn: https://www.linkedin.com/in/will-gunderson/ </p>
       </div>
       <div className="creator-info">
-        <div className="avatar">{/* <img src= /> */}</div>
+        <div className="avatar">
+          <img src="/riley-headshot.jpeg" />
+        </div>
         <p className="username"> Riley Hoffman </p>
         <p> github: https://github.com/rileyjhoff </p>
         <p> linkedIn: https://www.linkedin.com/in/riley-j-hoffman/ </p>
