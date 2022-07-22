@@ -25,7 +25,7 @@ export default function AboutPage() {
         <div className="flex-row space-around wrap">
           <div
             className="app-container flex-column space-between"
-            style={{ marginTop: '20px', padding: '1vw' }}
+            style={{ marginTop: '20px', marginBottom: '0px', padding: '1vw' }}
           >
             <div>
               <div className="avatar">
@@ -62,7 +62,7 @@ export default function AboutPage() {
           </div>
           <div
             className="app-container flex-column space-between"
-            style={{ marginTop: '20px', padding: '1vw' }}
+            style={{ marginTop: '20px', marginBottom: '0px', padding: '1vw' }}
           >
             <div>
               <div className="avatar">
@@ -99,11 +99,11 @@ export default function AboutPage() {
           </div>
           <div
             className="app-container flex-column space-between"
-            style={{ marginTop: '0px', padding: '1vw' }}
+            style={{ marginTop: '20px', marginBottom: '0px', padding: '1vw' }}
           >
             <div>
               <div className="avatar">
-                <img src={''} />
+                <img src="./delaney.png" />{' '}
               </div>
               <Typography sx={{ fontSize: 34, textAlign: 'center' }} variant="h3" component="div">
                 Delaney Fogarty
@@ -122,7 +122,7 @@ export default function AboutPage() {
                 variant="h4"
                 component="div"
               >
-                Subject
+                Science
               </Typography>
             </div>
             <div className="flex-row space-around" style={{ width: '240px', padding: '10px' }}>
@@ -136,7 +136,7 @@ export default function AboutPage() {
           </div>
           <div
             className="app-container flex-column space-between"
-            style={{ marginTop: '0px', padding: '1vw' }}
+            style={{ marginTop: '20px', marginBottom: '0px', padding: '1vw' }}
           >
             <div>
               <div className="avatar">
