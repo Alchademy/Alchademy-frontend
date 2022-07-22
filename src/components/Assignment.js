@@ -17,8 +17,4 @@ export default function Assignment({ assgn }) {
       </div>
     </Link>
   );
-  // working on getting custom colors for status name
-  // (assgn.status_id === 1 && '#dda438') ||
-  // (assgn.status_id === 2 && '#e89062') ||
-  // (assgn.status_id === 4 && '#1f4e5c')
 }
