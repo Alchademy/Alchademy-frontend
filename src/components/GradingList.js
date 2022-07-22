@@ -5,12 +5,14 @@ import { getSubmissionsByTA } from '../services/fetch-sumbissions';
 import GradeCard from './GradeCard';
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 import './AssignmentDetail.css';
+import Spinner from './Spinner';
 
 export default function GradingList() {
-  const { user } = useStateContext();
+  const { user, spinner, setSpinner } = useStateContext();
   const [allSubmissions, setAllSubmissions] = useState([]);
   const [status, setStatus] = useState(2);
   useEffect(() => {
+    setSpinner(true);
     async function getAllSubmissionsAndFilterForTA() {
       if (user.role > 1) {
         const submissionData = await getSubmissionsByTA();
@@ -19,6 +21,7 @@ export default function GradingList() {
       }
     }
     getAllSubmissionsAndFilterForTA();
+    setSpinner(false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [status]);
 
@@ -28,31 +31,35 @@ export default function GradingList() {
   }
 
   return (
-    <div className='app-page'>
-      <div className='app-container flex-row space-between'>
-        <h2 className="grading-header">Welcome to your Grading Section, {user.username}</h2>
-      </div>
-      <div className="app-container flex-column">
-        <div className='flex-row space-between'>
-          <h3>Submissions</h3>
-          <FormControl sx={{ width: '20vw' }}>
-            <InputLabel id="demo-simple-select-label">Status</InputLabel>
-            <Select
-              label="Status"
-              onChange={handleChange}
-            >
-              <MenuItem value={2}>Submitted</MenuItem>
-              <MenuItem value={3}>Archived</MenuItem>
-              <MenuItem value={4}>Completed</MenuItem>
-            </Select>
-          </FormControl>
-        </div>
-        <div className='flex-row'>
-          {allSubmissions.map((submission, i) => (
-            <GradeCard key={i} submission={submission} />
-          ))}
-        </div>
-      </div>
+    <div>
+      {spinner ? <Spinner /> :
+        <div className='app-page'>
+      
+          <div className='app-container flex-row space-between'>
+            <h2 className="grading-header">Welcome to your Grading Section, {user.username}</h2>
+          </div>
+          <div className="app-container flex-column">
+            <div className='flex-row space-between'>
+              <h3>Submissions</h3>
+              <FormControl sx={{ width: '20vw' }}>
+                <InputLabel id="demo-simple-select-label">Status</InputLabel>
+                <Select
+                  label="Status"
+                  onChange={handleChange}
+                >
+                  <MenuItem value={2}>Submitted</MenuItem>
+                  <MenuItem value={3}>Archived</MenuItem>
+                  <MenuItem value={4}>Completed</MenuItem>
+                </Select>
+              </FormControl>
+            </div>
+            <div className='flex-row'>
+              {allSubmissions.map((submission, i) => (
+                <GradeCard key={i} submission={submission} />
+              ))}
+            </div>
+          </div>
+        </div>}
     </div>
   );
 }

@@ -80,7 +80,7 @@ export default function AboutPage() {
         <div className="app-container flex-column space-between" style={{ margin: '1vw', padding: '1vw' }}>
           <div>
             <div className="avatar">
-              <img src={''}/>
+              <img src={'./beauHeadshot.png'}/>
             </div>
             <Typography sx={{ fontSize: 34 }} variant="h3" component="div">
                 Beau Elliott
@@ -91,7 +91,7 @@ export default function AboutPage() {
                   Favorite Subject in School...
             </Typography>
             <Typography sx={{ fontSize: 24 }} variant="h4" component="div">
-                  Subject
+                  Chemistry 💯 
             </Typography>
           </div>
           <div className='flex-row space-around' style={{ width: '240px', padding: '10px' }}>
