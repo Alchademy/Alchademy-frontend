@@ -51,11 +51,11 @@ export default function AboutPage() {
               </Typography>
             </div>
             <div className="flex-row space-around" style={{ width: '240px', padding: '10px' }}>
-              <LinkButton text="Github" link="https://github.com/willgundy" github={true} />
+              <LinkButton text="Github" link="https://github.com/willgundy" />
               <LinkButton
                 text="LinkedIn"
                 link="https://www.linkedin.com/in/will-gunderson/"
-                github={false}
+                linkedin={true}
               />
             </div>
           </div>
@@ -88,11 +88,11 @@ export default function AboutPage() {
               </Typography>
             </div>
             <div className="flex-row space-around" style={{ width: '240px', padding: '10px' }}>
-              <LinkButton text="Github" link="https://github.com/rileyjhoff" github={true} />
+              <LinkButton text="Github" link="https://github.com/rileyjhoff" />
               <LinkButton
                 text="LinkedIn"
                 link="https://www.linkedin.com/in/riley-j-hoffman/"
-                github={false}
+                linkedin={true}
               />
             </div>
           </div>
@@ -125,11 +125,11 @@ export default function AboutPage() {
               </Typography>
             </div>
             <div className="flex-row space-around" style={{ width: '240px', padding: '10px' }}>
-              <LinkButton text="Github" link="https://github.com/delaneyfogarty" github={true} />
+              <LinkButton text="Github" link="https://github.com/delaneyfogarty" />
               <LinkButton
                 text="LinkedIn"
                 link="https://www.linkedin.com/in/delaney-fogarty/"
-                github={false}
+                linkedin={true}
               />
             </div>
           </div>
@@ -162,11 +162,11 @@ export default function AboutPage() {
               </Typography>
             </div>
             <div className="flex-row space-around" style={{ width: '240px', padding: '10px' }}>
-              <LinkButton text="Github" link="https://github.com/belliott15" github={true} />
+              <LinkButton text="Github" link="https://github.com/belliott15" />
               <LinkButton
                 text="LinkedIn"
                 link="https://www.linkedin.com/in/beau-elliott15/"
-                github={false}
+                linkedin={true}
               />
             </div>
           </div>

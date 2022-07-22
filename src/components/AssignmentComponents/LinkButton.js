@@ -4,7 +4,7 @@ import { styled } from '@mui/material/styles';
 import { Button } from '@mui/material';
 import { LinkedIn } from '@mui/icons-material';
 
-export default function LinkButton({ text, link, github }) {
+export default function LinkButton({ text, link, linkedin }) {
   const ColorButton = styled(Button)(({ theme }) => ({
     color: theme.palette.getContrastText('#221F1F'),
     backgroundColor: '#221F1F',
@@ -14,7 +14,7 @@ export default function LinkButton({ text, link, github }) {
   }));
   return (
     <a href={link} target="_blank" rel="noreferrer" style={{ textDecoration: 'none' }}>
-      <ColorButton variant='contained' startIcon={ github ? <GitHubIcon /> : <LinkedIn /> }>
+      <ColorButton disabled={link ? false : true} variant='contained' startIcon={ linkedin ? <LinkedIn /> : <GitHubIcon /> }>
         {text}
       </ColorButton>
     </a>

@@ -12,7 +12,7 @@ export default function Assignment({ assgn }) {
           Total Points: {assgn.total_points}
         </p>
         <p className="status">
-          <StatusSwitch status_id={assgn.status_id} />
+          <StatusSwitch status_id={assgn.submission_status ? assgn.submission_status : 1 } />
         </p>
       </div>
     </Link>
