@@ -13,7 +13,7 @@ export default function AboutPage() {
   }
   useEffect(() => {
     setSpinner(true);
-    setTimeout(fakeLoading, 200);
+    setTimeout(fakeLoading, 300);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
