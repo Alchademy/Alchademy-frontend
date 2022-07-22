@@ -14,13 +14,11 @@
     position: relative;
     position: absolute;
     top: 22%;
-    animation: fade 10s forwards ease-out;
-    z-index: 1;
+    animation: fade 10s forwards linear;
 }
 
 .element{
     border: black solid 3px;
-    /* margin: 5px; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -52,9 +50,6 @@
 }
 
 .login-button{
-   /* position: absolute;
-   top: 50%;
-   transform: translate(-50%, -50%); */
    margin: 50px;
    z-index: 99;
    animation: fadeIn 5s forwards ease-in;
