@@ -8,12 +8,11 @@ import Spinner from './Spinner';
 
 export default function AboutPage() {
   const { spinner, setSpinner } = useStateContext();
-  function fakeLoading() {
-    setSpinner(false);
-  }
+
   useEffect(() => {
     setSpinner(true);
-    setTimeout(fakeLoading, 300);
+    //loading spinner template if we ever want to load any info on this page
+    setSpinner(false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -140,7 +139,7 @@ export default function AboutPage() {
           >
             <div>
               <div className="avatar">
-                <img src={''} />
+                <img src={'./beauHeadshot.png'} />
               </div>
               <Typography sx={{ fontSize: 34, textAlign: 'center' }} variant="h3" component="div">
                 Beau Elliott
@@ -159,7 +158,7 @@ export default function AboutPage() {
                 variant="h4"
                 component="div"
               >
-                Subject
+                Chemistry 💯
               </Typography>
             </div>
             <div className="flex-row space-around" style={{ width: '240px', padding: '10px' }}>
