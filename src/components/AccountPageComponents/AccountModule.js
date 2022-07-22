@@ -1,7 +1,7 @@
 import { Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { getAssignmentsAndSubmissionsBySyllabusId } from '../services/fetch-assignments';
+import { getAssignmentsAndSubmissionsBySyllabusId } from '../../services/fetch-assignments';
 
 export default function AccountModule({ syllabus }) {
   const [assignments, setAssignments] = useState([]);

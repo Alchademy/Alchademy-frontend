@@ -1,7 +1,7 @@
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useStateContext } from '../StateProvider';
-import AccountModule from './AccountModule';
+import AccountModule from './AccountPageComponents/AccountModule';
 import './AccountPage.css';
 
 export default function AccountPage() {
