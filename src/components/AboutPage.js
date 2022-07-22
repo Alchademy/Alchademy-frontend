@@ -22,10 +22,10 @@ export default function AboutPage() {
       {spinner ? (
         <Spinner />
       ) : (
-        <div className="flex-row space-around">
+        <div className="flex-row space-around wrap">
           <div
             className="app-container flex-column space-between"
-            style={{ margin: '1vw', padding: '1vw' }}
+            style={{ marginTop: '20px', padding: '1vw' }}
           >
             <div>
               <div className="avatar">
@@ -62,7 +62,7 @@ export default function AboutPage() {
           </div>
           <div
             className="app-container flex-column space-between"
-            style={{ margin: '1vw', padding: '1vw' }}
+            style={{ marginTop: '20px', padding: '1vw' }}
           >
             <div>
               <div className="avatar">
@@ -99,7 +99,7 @@ export default function AboutPage() {
           </div>
           <div
             className="app-container flex-column space-between"
-            style={{ margin: '1vw', padding: '1vw' }}
+            style={{ marginTop: '0px', padding: '1vw' }}
           >
             <div>
               <div className="avatar">
@@ -136,7 +136,7 @@ export default function AboutPage() {
           </div>
           <div
             className="app-container flex-column space-between"
-            style={{ margin: '1vw', padding: '1vw' }}
+            style={{ marginTop: '0px', padding: '1vw' }}
           >
             <div>
               <div className="avatar">
