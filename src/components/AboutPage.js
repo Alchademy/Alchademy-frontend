@@ -10,93 +10,145 @@ export default function AboutPage() {
 
   return (
     <div className="app-page">
-      <div className='flex-row space-around'>
-        <div className="app-container flex-column space-between" style={{ margin: '1vw', padding: '1vw' }}>
+      <div className="flex-row space-around">
+        <div
+          className="app-container flex-column space-between"
+          style={{ margin: '1vw', padding: '1vw' }}
+        >
           <div>
             <div className="avatar">
-              <img src='./willHeadshot.png'/>
+              <img src="./willHeadshot.png" />
             </div>
             <Typography sx={{ fontSize: 34 }} variant="h3" component="div">
-                  Will Gunderson
+              Will Gunderson
             </Typography>
           </div>
           <div>
             <Typography sx={{ fontSize: 16 }} variant="h5" component="div">
-                  Favorite Subject in School...
+              Favorite Subject in School...
             </Typography>
             <Typography sx={{ fontSize: 24 }} variant="h4" component="div">
-                  English
+              English
             </Typography>
           </div>
+<<<<<<< HEAD
           <div className='flex-row space-around' style={{ width: '240px', padding: '10px' }}>
             <LinkButton text='Github' link='https://github.com/willgundy'/>
             <LinkButton text='LinkedIn' link='https://www.linkedin.com/in/will-gunderson/' linkedin={true}/>
+=======
+          <div className="flex-row space-around" style={{ width: '240px', padding: '10px' }}>
+            <LinkButton text="Github" link="https://github.com/willgundy" github={true} />
+            <LinkButton
+              text="LinkedIn"
+              link="https://www.linkedin.com/in/will-gunderson/"
+              github={false}
+            />
+>>>>>>> 0c3b2935ce26a57ce2a104df76214c3b58c91652
           </div>
         </div>
-        <div className="app-container flex-column space-between" style={{ margin: '1vw', padding: '1vw' }}>
+        <div
+          className="app-container flex-column space-between"
+          style={{ margin: '1vw', padding: '1vw' }}
+        >
           <div>
             <div className="avatar">
-              <img src={''}/>
+              <img src={''} />
             </div>
             <Typography sx={{ fontSize: 34 }} variant="h3" component="div">
-                Riley Hoffman
+              Riley Hoffman
             </Typography>
           </div>
           <div>
             <Typography sx={{ fontSize: 16 }} variant="h5" component="div">
-                  Favorite Subject in School...
+              Favorite Subject in School...
             </Typography>
             <Typography sx={{ fontSize: 24 }} variant="h4" component="div">
-                  Subject
+              Subject
             </Typography>
           </div>
+<<<<<<< HEAD
           <div className='flex-row space-around' style={{ width: '240px', padding: '10px' }}>
             <LinkButton text='Github' link='https://github.com/rileyjhoff'/>
             <LinkButton text='LinkedIn' link='https://www.linkedin.com/in/riley-j-hoffman/' linkedin={true}/>
+=======
+          <div className="flex-row space-around" style={{ width: '240px', padding: '10px' }}>
+            <LinkButton text="Github" link="https://github.com/rileyjhoff" github={true} />
+            <LinkButton
+              text="LinkedIn"
+              link="https://www.linkedin.com/in/riley-j-hoffman/"
+              github={false}
+            />
+>>>>>>> 0c3b2935ce26a57ce2a104df76214c3b58c91652
           </div>
         </div>
-        <div className="app-container flex-column space-between" style={{ margin: '1vw', padding: '1vw' }}>
+        <div
+          className="app-container flex-column space-between"
+          style={{ margin: '1vw', padding: '1vw' }}
+        >
           <div>
             <div className="avatar">
-              <img src={''}/>
+              <img src="./delaney.png" />
             </div>
             <Typography sx={{ fontSize: 34 }} variant="h3" component="div">
-               Delaney Fogarty
+              Delaney Fogarty
             </Typography>
           </div>
           <div>
             <Typography sx={{ fontSize: 16 }} variant="h5" component="div">
-                  Favorite Subject in School...
+              Favorite Subject in School...
             </Typography>
             <Typography sx={{ fontSize: 24 }} variant="h4" component="div">
-                  Subject
+              Science
             </Typography>
           </div>
+<<<<<<< HEAD
           <div className='flex-row space-around' style={{ width: '240px', padding: '10px' }}>
             <LinkButton text='Github' link='https://github.com/delaneyfogarty'/>
             <LinkButton text='LinkedIn' link='https://www.linkedin.com/in/delaney-fogarty/' linkedin={true}/>
+=======
+          <div className="flex-row space-around" style={{ width: '240px', padding: '10px' }}>
+            <LinkButton text="Github" link="https://github.com/delaneyfogarty" github={true} />
+            <LinkButton
+              text="LinkedIn"
+              link="https://www.linkedin.com/in/delaney-fogarty/"
+              github={false}
+            />
+>>>>>>> 0c3b2935ce26a57ce2a104df76214c3b58c91652
           </div>
         </div>
-        <div className="app-container flex-column space-between" style={{ margin: '1vw', padding: '1vw' }}>
+        <div
+          className="app-container flex-column space-between"
+          style={{ margin: '1vw', padding: '1vw' }}
+        >
           <div>
             <div className="avatar">
-              <img src={''}/>
+              <img src={'./beauHeadshot.png'}/>
             </div>
             <Typography sx={{ fontSize: 34 }} variant="h3" component="div">
-                Beau Elliott
+              Beau Elliott
             </Typography>
           </div>
           <div>
             <Typography sx={{ fontSize: 16 }} variant="h5" component="div">
-                  Favorite Subject in School...
+              Favorite Subject in School...
             </Typography>
             <Typography sx={{ fontSize: 24 }} variant="h4" component="div">
-                  Subject
+                  Chemistry 💯 
             </Typography>
           </div>
+<<<<<<< HEAD
           <div className='flex-row space-around' style={{ width: '240px', padding: '10px' }}>
             <LinkButton text='Github' link='https://github.com/belliott15'/>
             <LinkButton text='LinkedIn' link='https://www.linkedin.com/in/beau-elliott15/' linkedin={true}/>
+=======
+          <div className="flex-row space-around" style={{ width: '240px', padding: '10px' }}>
+            <LinkButton text="Github" link="https://github.com/belliott15" github={true} />
+            <LinkButton
+              text="LinkedIn"
+              link="https://www.linkedin.com/in/beau-elliott15/"
+              github={false}
+            />
+>>>>>>> 0c3b2935ce26a57ce2a104df76214c3b58c91652
           </div>
         </div>
       </div>
