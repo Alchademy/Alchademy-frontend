@@ -14,7 +14,7 @@ export default function LinkButton({ text, link, linkedin }) {
   }));
   return (
     <a href={link} target="_blank" rel="noreferrer" style={{ textDecoration: 'none' }}>
-      <ColorButton variant='contained' startIcon={ linkedin ? <LinkedIn /> : <GitHubIcon /> }>
+      <ColorButton disabled={link ? false : true} variant='contained' startIcon={ linkedin ? <LinkedIn /> : <GitHubIcon /> }>
         {text}
       </ColorButton>
     </a>
