@@ -29,8 +29,8 @@ export default function AboutPage() {
             </Typography>
           </div>
           <div className='flex-row space-around' style={{ width: '240px', padding: '10px' }}>
-            <LinkButton text='Github' link='https://github.com/willgundy' github={true}/>
-            <LinkButton text='LinkedIn' link='https://www.linkedin.com/in/will-gunderson/' github={false}/>
+            <LinkButton text='Github' link='https://github.com/willgundy'/>
+            <LinkButton text='LinkedIn' link='https://www.linkedin.com/in/will-gunderson/' linkedin={true}/>
           </div>
         </div>
         <div className="app-container flex-column space-between" style={{ margin: '1vw', padding: '1vw' }}>
@@ -51,8 +51,8 @@ export default function AboutPage() {
             </Typography>
           </div>
           <div className='flex-row space-around' style={{ width: '240px', padding: '10px' }}>
-            <LinkButton text='Github' link='https://github.com/rileyjhoff' github={true}/>
-            <LinkButton text='LinkedIn' link='https://www.linkedin.com/in/riley-j-hoffman/' github={false}/>
+            <LinkButton text='Github' link='https://github.com/rileyjhoff'/>
+            <LinkButton text='LinkedIn' link='https://www.linkedin.com/in/riley-j-hoffman/' linkedin={true}/>
           </div>
         </div>
         <div className="app-container flex-column space-between" style={{ margin: '1vw', padding: '1vw' }}>
@@ -73,8 +73,8 @@ export default function AboutPage() {
             </Typography>
           </div>
           <div className='flex-row space-around' style={{ width: '240px', padding: '10px' }}>
-            <LinkButton text='Github' link='https://github.com/delaneyfogarty' github={true}/>
-            <LinkButton text='LinkedIn' link='https://www.linkedin.com/in/delaney-fogarty/' github={false}/>
+            <LinkButton text='Github' link='https://github.com/delaneyfogarty'/>
+            <LinkButton text='LinkedIn' link='https://www.linkedin.com/in/delaney-fogarty/' linkedin={true}/>
           </div>
         </div>
         <div className="app-container flex-column space-between" style={{ margin: '1vw', padding: '1vw' }}>
@@ -95,8 +95,8 @@ export default function AboutPage() {
             </Typography>
           </div>
           <div className='flex-row space-around' style={{ width: '240px', padding: '10px' }}>
-            <LinkButton text='Github' link='https://github.com/belliott15' github={true}/>
-            <LinkButton text='LinkedIn' link='https://www.linkedin.com/in/beau-elliott15/' github={false}/>
+            <LinkButton text='Github' link='https://github.com/belliott15'/>
+            <LinkButton text='LinkedIn' link='https://www.linkedin.com/in/beau-elliott15/' linkedin={true}/>
           </div>
         </div>
       </div>
