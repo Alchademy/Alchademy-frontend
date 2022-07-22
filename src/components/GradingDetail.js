@@ -128,6 +128,19 @@ export default function GradingDetail() {
           <LinkButton text={'Template'} link={activeAssignment.template_link}/>
           <LinkButton text={'Example'} link={activeAssignment.example_link}/>
         </div>
+        <div className='app-container flex-column'>
+          <Typography sx={{ fontSize: 24, fontWeight: 'Bold' }} variant="h5" component="div">
+              Grading Rubric
+          </Typography> 
+          <ThemeProvider theme={editorTheme}>
+            <MUIRichTextEditor
+              inlineToolbar={false}
+              toolbar={false}
+              readOnly={true}
+              defaultValue={activeAssignment.description}
+            />
+          </ThemeProvider>
+        </div>
       </div>
     </div>
   );
