@@ -31,19 +31,9 @@ export default function AboutPage() {
               English
             </Typography>
           </div>
-<<<<<<< HEAD
           <div className='flex-row space-around' style={{ width: '240px', padding: '10px' }}>
             <LinkButton text='Github' link='https://github.com/willgundy'/>
             <LinkButton text='LinkedIn' link='https://www.linkedin.com/in/will-gunderson/' linkedin={true}/>
-=======
-          <div className="flex-row space-around" style={{ width: '240px', padding: '10px' }}>
-            <LinkButton text="Github" link="https://github.com/willgundy" github={true} />
-            <LinkButton
-              text="LinkedIn"
-              link="https://www.linkedin.com/in/will-gunderson/"
-              github={false}
-            />
->>>>>>> 0c3b2935ce26a57ce2a104df76214c3b58c91652
           </div>
         </div>
         <div
@@ -66,19 +56,9 @@ export default function AboutPage() {
               Subject
             </Typography>
           </div>
-<<<<<<< HEAD
           <div className='flex-row space-around' style={{ width: '240px', padding: '10px' }}>
             <LinkButton text='Github' link='https://github.com/rileyjhoff'/>
             <LinkButton text='LinkedIn' link='https://www.linkedin.com/in/riley-j-hoffman/' linkedin={true}/>
-=======
-          <div className="flex-row space-around" style={{ width: '240px', padding: '10px' }}>
-            <LinkButton text="Github" link="https://github.com/rileyjhoff" github={true} />
-            <LinkButton
-              text="LinkedIn"
-              link="https://www.linkedin.com/in/riley-j-hoffman/"
-              github={false}
-            />
->>>>>>> 0c3b2935ce26a57ce2a104df76214c3b58c91652
           </div>
         </div>
         <div
@@ -101,19 +81,9 @@ export default function AboutPage() {
               Science
             </Typography>
           </div>
-<<<<<<< HEAD
           <div className='flex-row space-around' style={{ width: '240px', padding: '10px' }}>
             <LinkButton text='Github' link='https://github.com/delaneyfogarty'/>
             <LinkButton text='LinkedIn' link='https://www.linkedin.com/in/delaney-fogarty/' linkedin={true}/>
-=======
-          <div className="flex-row space-around" style={{ width: '240px', padding: '10px' }}>
-            <LinkButton text="Github" link="https://github.com/delaneyfogarty" github={true} />
-            <LinkButton
-              text="LinkedIn"
-              link="https://www.linkedin.com/in/delaney-fogarty/"
-              github={false}
-            />
->>>>>>> 0c3b2935ce26a57ce2a104df76214c3b58c91652
           </div>
         </div>
         <div
@@ -136,19 +106,9 @@ export default function AboutPage() {
                   Chemistry 💯 
             </Typography>
           </div>
-<<<<<<< HEAD
           <div className='flex-row space-around' style={{ width: '240px', padding: '10px' }}>
             <LinkButton text='Github' link='https://github.com/belliott15'/>
             <LinkButton text='LinkedIn' link='https://www.linkedin.com/in/beau-elliott15/' linkedin={true}/>
-=======
-          <div className="flex-row space-around" style={{ width: '240px', padding: '10px' }}>
-            <LinkButton text="Github" link="https://github.com/belliott15" github={true} />
-            <LinkButton
-              text="LinkedIn"
-              link="https://www.linkedin.com/in/beau-elliott15/"
-              github={false}
-            />
->>>>>>> 0c3b2935ce26a57ce2a104df76214c3b58c91652
           </div>
         </div>
       </div>
